@@ -5,6 +5,11 @@ local function getHighlightUnderCursor()
     print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))
 end
 
+local function openPdf()
+    local filename = vim.fn.expand("%:p:r") .. ".pdf"
+    vim.fn.execute("silent !" .. filename)
+end
+
 vim.keymap.set("n",     "<C-e>",        getHighlightUnderCursor,                            sopts)
 
 vim.keymap.set('n',     '<C-u>',        '<Cmd>nohl<CR>',                                    sopts)
@@ -24,7 +29,7 @@ vim.keymap.set('n',     '<leader>rr',   '<Cmd>!cargo run<CR>',                  
 vim.keymap.set('n',     '<leader>rt',   '<Cmd>!cargo test<CR>',                             opts)
 
 vim.keymap.set('n',     '<leader>lc',   '<Cmd>TexlabBuild<CR>',                             sopts)
-vim.keymap.set('n',     '<leader>lv',   '<Cmd>openPdf()<CR>',                               sopts)
+vim.keymap.set('n',     '<leader>lv',   openPdf,                                            sopts)
 
 vim.keymap.set('n',     '<leader>p',    '<Cmd>!python %:p<CR>',                             opts)
 
