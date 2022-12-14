@@ -99,15 +99,15 @@ _G.packer_plugins = {
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["lightline.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lightline.vim",
-    url = "https://github.com/itchyny/lightline.vim"
-  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,

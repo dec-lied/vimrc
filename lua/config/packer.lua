@@ -1,6 +1,7 @@
 vim.cmd[[packadd packer.nvim]]
 
 return require'packer'.startup(function(use)
+    -- package manager
 	use 'wbthomason/packer.nvim'
 
 	use 'nyoom-engineering/oxocarbon.nvim'
@@ -11,10 +12,19 @@ return require'packer'.startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 	use 'kyazdani42/nvim-web-devicons'
 
-	use 'itchyny/lightline.vim'
-	use 'lukas-reineke/indent-blankline.nvim'
+    use
+    {
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-web-devicons" }
+    }
 
-	use 'nvim-treesitter/nvim-treesitter'
+    use
+    {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate"
+    }
+
+	use 'lukas-reineke/indent-blankline.nvim'
 
     -- navigation
 	use 'romgrk/barbar.nvim'
@@ -33,5 +43,6 @@ return require'packer'.startup(function(use)
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
 
+    -- rust
 	use 'simrat39/rust-tools.nvim'
 end)

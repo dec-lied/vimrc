@@ -15,8 +15,8 @@ vim.g.bufferline =
 
 vim.cmd[[
 	augroup NvimTreeStart
-    		autocmd!
-    		autocmd VimEnter * silent! cd ~/
+    	autocmd!
+    	autocmd VimEnter * silent! cd ~/
 		autocmd VimEnter * silent! :NvimTreeFocus
   	augroup end
 ]]
