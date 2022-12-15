@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["cotton-candy"] = {
+    loaded = true,
+    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cotton-candy",
+    url = "https://github.com/dec-lied/cotton-candy"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fidget.nvim",
@@ -103,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["lua-language-server"] = {
+    loaded = true,
+    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lua-language-server",
+    url = "https://github.com/sumneko/lua-language-server"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -124,6 +134,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
@@ -143,11 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["oxocarbon.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\oxocarbon.nvim",
-    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

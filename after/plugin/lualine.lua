@@ -4,27 +4,27 @@ lualine_theme =
 {
     normal =
     {
-        a = { bg = "#000000", fg = "#d0d0d0", gui = 'bold' },
-        b = { bg = "#080808", fg = "#be95ff" },
-        c = { bg = "#0c0c0c", fg = "#78a9ff" }
+        a = { bg = "#0e0e0e", fg = "#d0d0d0", gui = 'bold' },
+        b = { bg = "#101010", fg = "#be95ff" },
+        c = { bg = "#121212", fg = "#78a9ff" }
     },
     insert = 
     {
-        a = { bg = "#000000", fg = "#ff7eb6", gui = 'bold' },
-        b = { bg = "#080808", fg = "#be95ff" },
-        c = { bg = "#0c0c0c", fg = "#78a9ff" }
+        a = { bg = "#0e0e0e", fg = "#ff7eb6", gui = 'bold' },
+        b = { bg = "#101010", fg = "#be95ff" },
+        c = { bg = "#121212", fg = "#78a9ff" }
     },
     command = 
     {
-        a = { bg = "#000000", fg = "#ee5396", gui = 'bold' },
-        b = { bg = "#080808", fg = "#be95ff" },
-        c = { bg = "#0c0c0c", fg = "#78a9ff" }
+        a = { bg = "#0e0e0e", fg = "#ee5396", gui = 'bold' },
+        b = { bg = "#101010", fg = "#be95ff" },
+        c = { bg = "#121212", fg = "#78a9ff" }
     },
     visual = 
     {
-        a = { bg = "#000000", fg = "#78a9ff", gui = 'bold' },
-        b = { bg = "#080808", fg = "#be95ff" },
-        c = { bg = "#0c0c0c", fg = "#78a9ff" }
+        a = { bg = "#0e0e0e", fg = "#78a9ff", gui = 'bold' },
+        b = { bg = "#101010", fg = "#be95ff" },
+        c = { bg = "#121212", fg = "#78a9ff" }
     }
 }
 

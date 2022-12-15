@@ -10,7 +10,12 @@ end
 
 local capabilities = require'cmp_nvim_lsp'.default_capabilities()
 
-local servers = { 'clangd', 'pyright', 'texlab' }
+local lsp_flags =
+{
+    debounce_text_changes = 150
+}
+
+local servers = { 'clangd', 'pyright', 'texlab', 'sumneko_lua' }
 
 for _, server in pairs(servers) do
     require'lspconfig'[server].setup
@@ -79,6 +84,8 @@ cmp.setup
 	}
 }
 
+
+
 -- -- -- -- -- -- --
 -- rust lsp setup --
 -- -- -- -- -- -- --
@@ -110,6 +117,35 @@ require'lspconfig'.rust_analyzer.setup
             unstable_features = true,
             build_on_save = false,
             all_features = true
+        }
+    }
+}
+
+-- -- -- -- -- -- -- --
+--   lua lsp setup   --
+-- -- -- -- -- -- -- --
+require'lspconfig'.sumneko_lua.setup
+{
+    settings = 
+    {
+        Lua = 
+        {
+            runtime = 
+            {
+                version = 'LuaJIT'
+            },
+            diagnostics = 
+            {
+                globals = { 'vim' }
+            },
+            workspace =
+            {
+                vim.api.nvim_get_runtime_file("", true)
+            },
+            telemetry =
+            {
+                enable = falsee
+            }
         }
     }
 }

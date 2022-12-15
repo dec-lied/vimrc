@@ -1,9 +1,10 @@
 vim.cmd[[packadd packer.nvim]]
 
-return require'packer'.startup(function(use)
+require'packer'.startup(function(use)
     -- package manager
 	use 'wbthomason/packer.nvim'
 
+    use 'dec-lied/cotton-candy'
 	use 'nyoom-engineering/oxocarbon.nvim'
 
 	use 'j-hui/fidget.nvim'
@@ -11,6 +12,9 @@ return require'packer'.startup(function(use)
 	use 'windwp/nvim-autopairs'
 	use 'nvim-lua/plenary.nvim'
 	use 'kyazdani42/nvim-web-devicons'
+    use 'norcalli/nvim-colorizer.lua'
+
+
 
     use
     {
@@ -37,6 +41,7 @@ return require'packer'.startup(function(use)
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
+    use 'sumneko/lua-language-server'
 
     -- snippets
 	use 'hrsh7th/cmp-vsnip'

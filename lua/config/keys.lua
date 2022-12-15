@@ -1,6 +1,8 @@
+-- keymap settings
 local opts = { noremap = true }
 local sopts = { noremap = true, silent = true }
 
+-- utility functions
 local function getHighlightUnderCursor()
     print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))
 end
@@ -10,7 +12,13 @@ local function openPdf()
     vim.fn.execute("silent !" .. filename)
 end
 
-vim.keymap.set("n",     "<C-e>",        getHighlightUnderCursor,                            sopts)
+-- leader key setup
+vim.g.mapleader = " "
+vim.keymap.set('n',     '<Space>',      '<Nop>',                                            sopts)
+
+vim.keymap.set('n',     '<C-e>',        getHighlightUnderCursor,                            sopts)
+
+vim.keymap.set('n',     '<leader>cz',   '<Cmd>ColorizerToggle<CR>',                         sopts)
 
 vim.keymap.set('n',     '<C-u>',        '<Cmd>nohl<CR>',                                    sopts)
 
