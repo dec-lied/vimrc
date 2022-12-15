@@ -2,10 +2,10 @@
 -- general lsp setup -- 
 -- -- -- -- -- -- -- --
 
-local on_attach = function(client, bufnr)
-    vim.keymap.set('n', '<leader>a', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', '<leader>s', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', '<leader>d', vim.lsp.buf.declaration, bufopts)
+local on_attach = function()
+    vim.keymap.set('n', '<leader>a', vim.lsp.buf.hover, { remap = false} )
+    vim.keymap.set('n', '<leader>s', vim.lsp.buf.definition, { remap = false} )
+    vim.keymap.set('n', '<leader>d', vim.lsp.buf.declaration, { remap = false} )
 end
 
 local capabilities = require'cmp_nvim_lsp'.default_capabilities()
@@ -15,7 +15,7 @@ local lsp_flags =
     debounce_text_changes = 150
 }
 
-local servers = { 'clangd', 'pyright', 'texlab', 'sumneko_lua' }
+local servers = { 'clangd', 'pyright', 'texlab' }
 
 for _, server in pairs(servers) do
     require'lspconfig'[server].setup
@@ -54,23 +54,23 @@ cmp.setup
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
     },
-    mapping = 
+    mapping =
     {
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-i>'] = cmp.mapping.scroll_docs(4),
         ['<Up>'] = cmp.mapping.select_prev_item(),
         ['<Down>'] = cmp.mapping.select_next_item(),
-        ['<Tab>'] = cmp.mapping.confirm(
+        ['<C-Tab>'] = cmp.mapping.confirm(
         {
-           behavior = cmp.ConfirmBehavior.Replace,
-           select = true,
-        })
+            select = true,
+        }, {'i', 'c'})
     },
     sources = cmp.config.sources(
     {
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
         { name = 'buffer' },
+        { name = 'vsnip' },
+        { name = 'path' }
     }),
     formatting =
     {
@@ -95,7 +95,6 @@ require'lspconfig'.rust_analyzer.setup
     on_attach = on_attach,
     lsp_flags = lsp_flags,
     capabilities = capabilities,
-    
     cmd = { "rustup", "run", "nightly", "rust-analyzer" },
 
     settings =
@@ -126,15 +125,19 @@ require'lspconfig'.rust_analyzer.setup
 -- -- -- -- -- -- -- --
 require'lspconfig'.sumneko_lua.setup
 {
-    settings = 
+    on_attach = on_attach,
+    lsp_flags = lsp_flags,
+    capabilities = capabilities,
+
+    settings =
     {
-        Lua = 
+        Lua =
         {
-            runtime = 
+            runtime =
             {
                 version = 'LuaJIT'
             },
-            diagnostics = 
+            diagnostics =
             {
                 globals = { 'vim' }
             },
@@ -144,7 +147,7 @@ require'lspconfig'.sumneko_lua.setup
             },
             telemetry =
             {
-                enable = falsee
+                enable = false
             }
         }
     }

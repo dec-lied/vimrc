@@ -10,12 +10,3 @@ require'nvim-autopairs'.setup {}
 
 require 'colorizer'.setup {}
 
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
---    lukas-reineke/indent-blankline.nvim    --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-
-require'indent_blankline'.setup
-{
-    show_current_context = true
-}
-

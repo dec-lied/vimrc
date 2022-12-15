@@ -4,7 +4,7 @@ require'packer'.startup(function(use)
     -- package manager
 	use 'wbthomason/packer.nvim'
 
-    use 'dec-lied/cotton-candy'
+    use 'dec-lied/candy-floss'
 	use 'nyoom-engineering/oxocarbon.nvim'
 
 	use 'j-hui/fidget.nvim'

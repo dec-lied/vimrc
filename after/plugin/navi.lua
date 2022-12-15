@@ -2,7 +2,7 @@
 --  romgrk/barbar.nvim  --
 -- -- -- -- -- -- -- -- --
 
-vim.g.bufferline = 
+vim.g.bufferline =
 {
     animation = false,
     closable = false,

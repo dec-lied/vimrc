@@ -1,9 +1,5 @@
-require'cotton-candy'.setup {}
-
--- setting colorscheme
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
--- vim.cmd.colorscheme "cotton-candy"
+vim.cmd.colorscheme "candy-floss"
+-- vim.cmd.colorscheme "oxocarbon"
 
 -- oxocarbon edits
 -- simple

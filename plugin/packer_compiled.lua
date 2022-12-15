@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["candy-floss"] = {
+    loaded = true,
+    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\candy-floss",
+    url = "https://github.com/dec-lied/candy-floss"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
@@ -88,11 +93,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
-  },
-  ["cotton-candy"] = {
-    loaded = true,
-    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cotton-candy",
-    url = "https://github.com/dec-lied/cotton-candy"
   },
   ["fidget.nvim"] = {
     loaded = true,
@@ -158,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Gavin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
