@@ -26,3 +26,6 @@ vim.opt.undodir = vim.fn.stdpath('data') .. '\\undodir\\'
 vim.opt.undofile = true
 
 vim.opt.scrolloff = 20
+
+vim.g.loaded_netrw = true
+vim.g.loaded_netrwPlugin = true

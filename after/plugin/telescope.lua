@@ -4,7 +4,7 @@
 
 require 'telescope'.setup
 {
-    defaults = 
+    defaults =
     {
         file_ignore_patterns = { ".git" }
     }

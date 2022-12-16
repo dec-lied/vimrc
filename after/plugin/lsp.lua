@@ -59,8 +59,10 @@ cmp.setup
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-i>'] = cmp.mapping.scroll_docs(4),
         ['<Up>'] = cmp.mapping.select_prev_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<Down>'] = cmp.mapping.select_next_item(),
-        ['<C-Tab>'] = cmp.mapping.confirm(
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<Tab><Tab>'] = cmp.mapping.confirm(
         {
             select = true,
         }, {'i', 'c'})

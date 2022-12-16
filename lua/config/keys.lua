@@ -22,8 +22,6 @@ vim.keymap.set('n',     '<leader>cz',   '<Cmd>ColorizerToggle<CR>',             
 
 vim.keymap.set('n',     '<C-u>',        '<Cmd>nohl<CR>',                                    sopts)
 
-vim.keymap.set('i',     '<S-Tab>',      '<C-d>',                                            sopts)
-
 vim.keymap.set('n',     '<C-c>',        'cc',                                               sopts)
 vim.keymap.set('n',     '<C-d>',        'dd',                                               sopts)
 
@@ -52,11 +50,11 @@ vim.keymap.set('n',     '<C-j>',        '<Cmd>wincmd j<CR>',                    
 vim.keymap.set('n',     '<C-k>',        '<Cmd>wincmd k<CR>',                                sopts)
 vim.keymap.set('n',     '<C-l>',        '<Cmd>wincmd l<CR>',                                sopts)
 
-vim.keymap.set('n',     '<A-h>',        '<Cmd>BufferMovePrevious<CR>',                      sopts)
-vim.keymap.set('n',     '<A-l>',        '<Cmd>BufferMoveNext<CR>',                          sopts)
+vim.keymap.set('n',     '<A-j>',        '<Cmd>BufferMovePrevious<CR>',                      sopts)
+vim.keymap.set('n',     '<A-k>',        '<Cmd>BufferMoveNext<CR>',                          sopts)
 
-vim.keymap.set('n',     '<A-j>',        '<Cmd>BufferPrevious<CR>',                          sopts)
-vim.keymap.set('n',     '<A-k>',        '<Cmd>BufferNext<CR>',                              sopts)
+vim.keymap.set('n',     '<A-h>',        '<Cmd>BufferPrevious<CR>',                          sopts)
+vim.keymap.set('n',     '<A-l>',        '<Cmd>BufferNext<CR>',                              sopts)
 
 vim.keymap.set('n',     '<A-1>',        '<Cmd>BufferGoto 1<CR>',                            sopts)
 vim.keymap.set('n',     '<A-2>',        '<Cmd>BufferGoto 2<CR>',                            sopts)

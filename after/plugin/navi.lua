@@ -45,7 +45,7 @@ require'nvim-tree'.setup
     {
        symlink_destination = false,
 
-       icons = 
+       icons =
        {
             show =
             {
@@ -59,11 +59,11 @@ require'nvim-tree'.setup
     },
     update_focused_file =
     {
-        enable = true
+        enable = false
     },
-    actions = 
+    actions =
     {
-        change_dir = 
+        change_dir =
         {
             enable = true,
             global = true
