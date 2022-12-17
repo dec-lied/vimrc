@@ -62,7 +62,7 @@ cmp.setup
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<Down>'] = cmp.mapping.select_next_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<Tab><Tab>'] = cmp.mapping.confirm(
+        ['<C-Tab>'] = cmp.mapping.confirm(
         {
             select = true,
         }, {'i', 'c'})
