@@ -1,7 +1,7 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.showmode = true
+vim.opt.showmode = false
 
 vim.opt.guicursor = "a:block"
 vim.opt.guicursor = "i:blinkon500-blinkwait500-blinkoff500"

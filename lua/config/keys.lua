@@ -16,7 +16,9 @@ end
 vim.g.mapleader = " "
 vim.keymap.set('n',     '<Space>',      '<Nop>',                                            sopts)
 
-vim.keymap.set('n',     '<C-e>',        getHighlightUnderCursor,                            sopts)
+vim.keymap.set('n',     '<leader>h',    getHighlightUnderCursor,                            sopts)
+
+vim.keymap.set('n',     '<C-e>',        '<Cmd>!explorer .<CR>',                             sopts)
 
 vim.keymap.set('n',     '<leader>cz',   '<Cmd>ColorizerToggle<CR>',                         sopts)
 
@@ -32,6 +34,8 @@ vim.keymap.set('n',     'gc',           '<Cmd>%y+<CR>',                         
 vim.keymap.set('n',     'gv',           '<Cmd>%d<CR>"+P<CR>',                               opts)
 
 vim.keymap.set('n',     '<leader>rr',   '<Cmd>!cargo run<CR>',                              opts)
+vim.keymap.set('n',     '<leader>rb',   '<Cmd>!cargo build<CR>',                            opts)
+vim.keymap.set('n',     '<leader>rn',   '<Cmd>!cargo build --release<CR>',                  opts)
 vim.keymap.set('n',     '<leader>rt',   '<Cmd>!cargo test<CR>',                             opts)
 
 vim.keymap.set('n',     '<leader>lc',   '<Cmd>TexlabBuild<CR>',                             sopts)

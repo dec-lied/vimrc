@@ -4,7 +4,7 @@
 
 require'nvim-treesitter.configs'.setup
 {
-    ensure_installed = { "c", "cpp", "vim", "lua", "rust", "java", "python", "latex" }, -- latex handled by texlab
+    ensure_installed = { "c", "cpp", "css", "vim", "lua", "rust", "java", "python"  }, -- latex handled by texlab
     sync_install = false,
     auto_install = false,
 
