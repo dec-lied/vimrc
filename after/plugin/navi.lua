@@ -13,13 +13,6 @@ vim.g.bufferline =
 --    nvim-tree/nvim-tree.lua    --
 -- -- -- -- -- -- -- -- -- -- -- --
 
-vim.cmd[[
-	augroup NvimTreeStart
-    	autocmd!
-		autocmd VimEnter * silent! :NvimTreeFocus
-  	augroup end
-]]
-
 require'nvim-tree'.setup
 {
     open_on_setup = true,
