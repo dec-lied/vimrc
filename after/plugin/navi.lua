@@ -9,6 +9,14 @@ vim.g.bufferline =
     icons = true
 }
 
+-- -- -- -- -- -- -- -- --
+-- dec-lied/candy-floss --
+-- -- -- -- -- -- -- -- --
+
+-- need to call barbar setup here because it loads too late, so the highlight groups are reset
+
+require'candy-floss'.setup_barbar()
+
 -- -- -- -- -- -- -- -- -- -- -- --
 --    nvim-tree/nvim-tree.lua    --
 -- -- -- -- -- -- -- -- -- -- -- --
