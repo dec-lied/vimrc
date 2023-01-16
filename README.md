@@ -9,4 +9,4 @@ My neovim and [neovide](https://neovide.dev/) config written in lua
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim), [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua), and [barbar.nvim](https://github.com/romgrk/barbar.nvim) for navigation
 
 ## Screenshot
-
+![rsscr](https://user-images.githubusercontent.com/103293120/212624055-e3757d51-98dd-4fcb-b920-1ec2ab6fb48e.png)
