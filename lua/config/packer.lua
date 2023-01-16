@@ -4,17 +4,17 @@ require'packer'.startup(function(use)
     -- package manager
 	use 'wbthomason/packer.nvim'
 
+    -- colorscheme
     use 'dec-lied/candy-floss'
-	use 'nyoom-engineering/oxocarbon.nvim'
 
+    -- misc
 	use 'j-hui/fidget.nvim'
 	use 'MunifTanjim/nui.nvim'
 	use 'windwp/nvim-autopairs'
 	use 'nvim-lua/plenary.nvim'
 	use 'kyazdani42/nvim-web-devicons'
     use 'norcalli/nvim-colorizer.lua'
-
-
+	use 'lukas-reineke/indent-blankline.nvim'
 
     use
     {
@@ -28,15 +28,13 @@ require'packer'.startup(function(use)
         run = ":TSUpdate"
     }
 
-	use 'lukas-reineke/indent-blankline.nvim'
-
     -- navigation
 	use 'romgrk/barbar.nvim'
 	use 'nvim-tree/nvim-tree.lua'
-
 	use 'nvim-telescope/telescope.nvim'
 
     -- lsp
+    use "folke/trouble.nvim"
 	use 'onsails/lspkind.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/nvim-cmp'
@@ -47,7 +45,4 @@ require'packer'.startup(function(use)
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
-
-    -- rust
-	use 'simrat39/rust-tools.nvim'
 end)

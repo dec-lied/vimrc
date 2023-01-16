@@ -4,7 +4,6 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 vim.opt.guicursor = "a:block"
-vim.opt.guicursor = "i:blinkon500-blinkwait500-blinkoff500"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -18,7 +17,7 @@ vim.opt.incsearch = true
 vim.opt.wrap = false
 
 vim.opt.hidden = true
--- let g:tex_flavor = 'latex'
+vim.g.tex_flavor = 'latex'
 
 vim.opt.swapfile = false
 vim.opt.backup = false

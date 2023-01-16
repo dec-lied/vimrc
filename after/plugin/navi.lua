@@ -15,30 +15,32 @@ vim.g.bufferline =
 
 require'nvim-tree'.setup
 {
+    disable_netrw = true,
     open_on_setup = true,
+    hijack_unnamed_buffer_when_opening = true,
     sync_root_with_cwd = true, -- actions { change_dir { global } } may have conflicts if this is enabled
 
     view =
     {
-       adaptive_size = true,
-       relativenumber = true,
-       signcolumn = "no",
+        adaptive_size = true,
+        relativenumber = true,
+        signcolumn = "no",
 
-       mappings =
-       {
+        mappings =
+        {
             list =
             {
-               { key = "<BS>",  action = "dir_up" },
-               { key = ".",     action = "cd"}
+                { key = "<BS>",  action = "dir_up" },
+                { key = ".",     action = "cd"}
             },
-       },
+        },
     },
     renderer =
     {
-       symlink_destination = false,
+        symlink_destination = false,
 
-       icons =
-       {
+        icons =
+        {
             show =
             {
                 git = false

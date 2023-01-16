@@ -1,3 +1,9 @@
+-- -- -- -- -- -- -- -- --
+--  folke/trouble.nvim  --
+-- -- -- -- -- -- -- -- --
+
+require'trouble'.setup{}
+
 -- -- -- -- -- -- -- --
 -- general lsp setup -- 
 -- -- -- -- -- -- -- --
@@ -65,7 +71,8 @@ cmp.setup
         ['<C-Tab>'] = cmp.mapping.confirm(
         {
             select = true,
-        }, {'i', 'c'})
+        },
+        {'i', 'c'})
     },
     sources = cmp.config.sources(
     {
@@ -105,19 +112,13 @@ require'lspconfig'.rust_analyzer.setup
         {
             cargo =
             {
-                autoreload = true
+                autoreload = true,
+                checkOnSave = true
             },
-            checkOnSave =
+            check=
             {
                 command = "check"
             }
-        },
-
-        rust =
-        {
-            unstable_features = true,
-            build_on_save = false,
-            all_features = true
         }
     }
 }
