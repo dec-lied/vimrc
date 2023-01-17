@@ -6,7 +6,7 @@ require'nvim-tree'.setup
 {
     disable_netrw = true,
     open_on_setup = true,
-    sync_root_with_cwd = true, -- actions { change_dir { global } } may have conflicts if this is enabled
+    sync_root_with_cwd = true,
 
     view =
     {
@@ -30,41 +30,18 @@ require'nvim-tree'.setup
         icons =
         {
             git_placement = "after",
-            show =
-            {
-                git = true
-            },
             glyphs =
             {
                 git =
                 {
                     unstaged = "~",
-                    staged = "✓",
-                    unmerged = "",
-                    renamed = "➜",
-                    untracked = "★",
-                    deleted = "",
-                    ignored = "◌",
-                },
+                }
             }
         },
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" }
     },
     filesystem_watchers =
     {
         enable = false,
-    },
-    update_focused_file =
-    {
-        enable = false
-    },
-    actions =
-    {
-        change_dir =
-        {
-            enable = true,
-            global = false
-        }
     }
 }
 
