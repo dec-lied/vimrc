@@ -68,12 +68,12 @@ vim.keymap.set('n',     '<leader>fh',   '<Cmd>Telescope help_tags<CR>',         
 -- harpoon
 vim.keymap.set('n',     '<leader>hh',   '<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>',  opts)
 vim.keymap.set('n',     '<leader>ha',   '<Cmd>lua require("harpoon.mark").add_file()<CR>',  opts)
-vim.keymap.set('n',     '<A-1>',        '<Cmd>lua require("harpoon.ui").nav_file(1)<CR>',   opts)
-vim.keymap.set('n',     '<A-2>',        '<Cmd>lua require("harpoon.ui").nav_file(2)<CR>',   opts)
-vim.keymap.set('n',     '<A-3>',        '<Cmd>lua require("harpoon.ui").nav_file(3)<CR>',   opts)
-vim.keymap.set('n',     '<A-4>',        '<Cmd>lua require("harpoon.ui").nav_file(4)<CR>',   opts)
-vim.keymap.set('n',     '<A-5>',        '<Cmd>lua require("harpoon.ui").nav_file(5)<CR>',   opts)
-vim.keymap.set('n',     '<A-6>',        '<Cmd>lua require("harpoon.ui").nav_file(6)<CR>',   opts)
+vim.keymap.set('n',     '<A-1>',        '<Cmd>lua require("harpoon.ui").nav_file(1)<CR><Cmd>sleep 1m<CR>zz',   opts)
+vim.keymap.set('n',     '<A-2>',        '<Cmd>lua require("harpoon.ui").nav_file(2)<CR><Cmd>sleep 1m<CR>zz',   opts)
+vim.keymap.set('n',     '<A-3>',        '<Cmd>lua require("harpoon.ui").nav_file(3)<CR><Cmd>sleep 1m<CR>zz',   opts)
+vim.keymap.set('n',     '<A-4>',        '<Cmd>lua require("harpoon.ui").nav_file(4)<CR><Cmd>sleep 1m<CR>zz',   opts)
+vim.keymap.set('n',     '<A-5>',        '<Cmd>lua require("harpoon.ui").nav_file(5)<CR><Cmd>sleep 1m<CR>zz',   opts)
+vim.keymap.set('n',     '<A-6>',        '<Cmd>lua require("harpoon.ui").nav_file(6)<CR><Cmd>sleep 1m<CR>zz',   opts)
 
 -- window navigation
 vim.keymap.set('n',     '<C-h>',        '<Cmd>wincmd h<CR>',                                sopts)
