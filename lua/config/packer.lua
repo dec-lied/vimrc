@@ -49,6 +49,10 @@ require'packer'.startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'neovim/nvim-lspconfig'
 
+    -- snippets
+    use 'saadparwaiz1/cmp_luasnip'
+    use{ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" }
+
     -- visual lsp stuff
 	use 'j-hui/fidget.nvim'
     use 'folke/trouble.nvim'

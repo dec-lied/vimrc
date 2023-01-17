@@ -63,21 +63,37 @@ require'nvim-tree'.setup
         change_dir =
         {
             enable = true,
-            global = true
+            global = false
         }
     }
 }
 
 -- -- -- -- -- -- -- -- -- -- -- --
---
 -- nvim-telescope/telescope.nvim --
 -- -- -- -- -- -- -- -- -- -- -- --
+
+local actions = require'telescope.actions'
 
 require'telescope'.setup
 {
     defaults =
     {
-        file_ignore_patterns = { ".git" }
+        file_ignore_patterns = { ".git" },
+        mappings =
+        {
+            i =
+            {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-Tab>"] = actions.select_default
+            },
+            n =
+            {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-Tab>"] = actions.select_default
+            }
+        }
     }
 }
 

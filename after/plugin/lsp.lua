@@ -42,6 +42,7 @@ local lspkind = require'lspkind'
 
 local source_mapping =
 {
+    luasnip = "[Snippet]",
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
 	path = "[Path]",
@@ -50,6 +51,19 @@ local source_mapping =
 local cmp = require'cmp'
 cmp.setup
 {
+    sources =
+    {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' }
+    },
+    snippet =
+    {
+        expand = function(args)
+            require'luasnip'.lsp_expand(args.body)
+        end
+    },
     window =
     {
         completion = cmp.config.window.bordered(),
@@ -69,25 +83,23 @@ cmp.setup
         },
         {'i', 'c'})
     },
-    sources = cmp.config.sources(
-    {
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
-        { name = 'path' }
-    }),
     formatting =
     {
-		format = function(entry, item)
-			item.kind = lspkind.presets.default[item.kind]
+        format = lspkind.cmp_format(
+        {
+            mode = 'symbol_text',
+            ellipses_char = '...',
 
-			item.menu = source_mapping[entry.source.name]
+	        before = function(entry, item)
+	        	item.kind = lspkind.presets.default[item.kind]
 
-			return item
-		end,
+	        	item.menu = source_mapping[entry.source.name]
+
+	        	return item
+	        end
+        })
 	}
 }
-
-
 
 -- -- -- -- -- -- --
 -- rust lsp setup --
@@ -109,7 +121,7 @@ require'lspconfig'.rust_analyzer.setup
                 autoreload = true,
                 checkOnSave = true
             },
-            check=
+            check =
             {
                 command = "check"
             }
