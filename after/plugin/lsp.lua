@@ -9,9 +9,11 @@ require'trouble'.setup{}
 -- -- -- -- -- -- -- --
 
 local on_attach = function()
-    vim.keymap.set('n', '<leader>a', vim.lsp.buf.hover, { remap = false} )
-    vim.keymap.set('n', '<leader>s', vim.lsp.buf.definition, { remap = false} )
-    vim.keymap.set('n', '<leader>d', vim.lsp.buf.declaration, { remap = false} )
+    vim.keymap.set('n', '<leader>sa', vim.lsp.buf.hover, { remap = false } )
+    vim.keymap.set('n', '<leader>ss', vim.lsp.buf.definition, { remap = false } )
+    vim.keymap.set('n', '<leader>sd', vim.lsp.buf.declaration, { remap = false } )
+    vim.keymap.set('n', '<leader>sr', vim.lsp.buf.references, { remap = false } )
+    vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help, { remap = false } )
 end
 
 local capabilities = require'cmp_nvim_lsp'.default_capabilities()
@@ -42,19 +44,12 @@ local source_mapping =
 {
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
-	vsnip = "[Snippet]",
 	path = "[Path]",
 }
 
 local cmp = require'cmp'
 cmp.setup
 {
-    snippet =
-    {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
     window =
     {
         completion = cmp.config.window.bordered(),
@@ -78,7 +73,6 @@ cmp.setup
     {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
-        { name = 'vsnip' },
         { name = 'path' }
     }),
     formatting =
@@ -118,39 +112,6 @@ require'lspconfig'.rust_analyzer.setup
             check=
             {
                 command = "check"
-            }
-        }
-    }
-}
-
--- -- -- -- -- -- -- --
---   lua lsp setup   --
--- -- -- -- -- -- -- --
-require'lspconfig'.sumneko_lua.setup
-{
-    on_attach = on_attach,
-    lsp_flags = lsp_flags,
-    capabilities = capabilities,
-
-    settings =
-    {
-        Lua =
-        {
-            runtime =
-            {
-                version = 'LuaJIT'
-            },
-            diagnostics =
-            {
-                globals = { 'vim' }
-            },
-            workspace =
-            {
-                vim.api.nvim_get_runtime_file("", true)
-            },
-            telemetry =
-            {
-                enable = false
             }
         }
     }

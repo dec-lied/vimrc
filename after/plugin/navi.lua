@@ -1,22 +1,3 @@
--- -- -- -- -- -- -- -- --
---  romgrk/barbar.nvim  --
--- -- -- -- -- -- -- -- --
-
-vim.g.bufferline =
-{
-    animation = false,
-    closable = false,
-    icons = true
-}
-
--- -- -- -- -- -- -- -- --
--- dec-lied/candy-floss --
--- -- -- -- -- -- -- -- --
-
--- need to call barbar setup here because it loads too late, so the highlight groups are reset
-
-require'candy-floss'.setup_barbar()
-
 -- -- -- -- -- -- -- -- -- -- -- --
 --    nvim-tree/nvim-tree.lua    --
 -- -- -- -- -- -- -- -- -- -- -- --
@@ -25,7 +6,6 @@ require'nvim-tree'.setup
 {
     disable_netrw = true,
     open_on_setup = true,
-    hijack_unnamed_buffer_when_opening = true,
     sync_root_with_cwd = true, -- actions { change_dir { global } } may have conflicts if this is enabled
 
     view =
@@ -49,11 +29,26 @@ require'nvim-tree'.setup
 
         icons =
         {
+            git_placement = "after",
             show =
             {
-                git = false
+                git = true
+            },
+            glyphs =
+            {
+                git =
+                {
+                    unstaged = "~",
+                    staged = "✓",
+                    unmerged = "",
+                    renamed = "➜",
+                    untracked = "★",
+                    deleted = "",
+                    ignored = "◌",
+                },
             }
-        }
+        },
+        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" }
     },
     filesystem_watchers =
     {

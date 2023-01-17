@@ -7,42 +7,50 @@ require'packer'.startup(function(use)
     -- colorscheme
     use 'dec-lied/candy-floss'
 
-    -- misc
-	use 'j-hui/fidget.nvim'
-	use 'MunifTanjim/nui.nvim'
+    -- visual
 	use 'windwp/nvim-autopairs'
 	use 'nvim-lua/plenary.nvim'
-	use 'kyazdani42/nvim-web-devicons'
     use 'norcalli/nvim-colorizer.lua'
+	use 'kyazdani42/nvim-web-devicons'
 	use 'lukas-reineke/indent-blankline.nvim'
 
     use
     {
-        "nvim-lualine/lualine.nvim",
-        requires = { "nvim-web-devicons" }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-web-devicons' }
     }
 
+    -- syntax highlighting
     use
     {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
     }
 
     -- navigation
-	use 'romgrk/barbar.nvim'
 	use 'nvim-tree/nvim-tree.lua'
-	use 'nvim-telescope/telescope.nvim'
+    use 'ThePrimeagen/harpoon'
+
+    use
+    {
+        'nvim-telescope/telescope.nvim',
+        requires =
+        {
+            { 'nvim-telescope/telescope-live-grep-args.nvim' },
+        },
+        config = function()
+            require'telescope'.load_extension('live_grep_args')
+            require'telescope'.load_extension('harpoon')
+        end
+    }
 
     -- lsp
-    use "folke/trouble.nvim"
-	use 'onsails/lspkind.nvim'
-	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
-    use 'sumneko/lua-language-server'
+	use 'neovim/nvim-lspconfig'
 
-    -- snippets
-	use 'hrsh7th/cmp-vsnip'
-	use 'hrsh7th/vim-vsnip'
-	use 'hrsh7th/vim-vsnip-integ'
+    -- visual lsp stuff
+	use 'j-hui/fidget.nvim'
+    use 'folke/trouble.nvim'
+	use 'onsails/lspkind.nvim'
 end)
