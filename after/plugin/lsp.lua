@@ -23,7 +23,7 @@ local lsp_flags =
     debounce_text_changes = 150
 }
 
-local servers = { 'html', 'cssls', 'clangd', 'pyright', 'texlab' }
+local servers = { 'html', 'cssls', 'tsserver', 'jsonls', 'clangd', 'pyright', 'texlab' }
 
 for _, server in pairs(servers) do
     require'lspconfig'[server].setup
