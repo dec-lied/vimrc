@@ -5,7 +5,7 @@ require'packer'.startup(function(use)
 	use 'wbthomason/packer.nvim'
 
     -- colorscheme
-    use 'dec-lied/candy-floss'
+    use 'declspecl/candy-floss'
 
     -- visual
 	use 'windwp/nvim-autopairs'
