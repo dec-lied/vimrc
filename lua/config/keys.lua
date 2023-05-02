@@ -3,21 +3,16 @@ local opts = { noremap = true }
 local sopts = { noremap = true, silent = true }
 
 -- utility functions
-local function getHighlightUnderCursor()
-    print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))
-end
-
-local function openPdf()
-    local filename = vim.fn.expand("%:p:r") .. ".pdf"
-    vim.fn.execute("silent !" .. filename)
-end
+-- local function getHighlightUnderCursor()
+--     print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))
+-- end
 
 -- defining leader key
 vim.g.mapleader = " "
 vim.keymap.set('n',     '<Space>',      '<Nop>',                                            sopts)
 
 -- color & highlight group stuff
-vim.keymap.set('n',     '<leader>h',    getHighlightUnderCursor,                            sopts)
+-- vim.keymap.set('n',     '<leader>h',    getHighlightUnderCursor,                            sopts)
 vim.keymap.set('n',     '<leader>cz',   '<Cmd>ColorizerToggle<CR>',                         sopts)
 vim.keymap.set('n',     '<C-u>',        '<Cmd>nohl<CR>',                                    sopts)
 
@@ -48,15 +43,11 @@ vim.keymap.set('n',     '<leader>rn',   '<Cmd>!cargo build --release<CR>',      
 vim.keymap.set('n',     '<leader>rt',   '<Cmd>!cargo test<CR>',                             opts)
 vim.keymap.set('n',     '<leader>rcr',  '<Cmd>CargoReload<CR>',                             opts)
 
--- latex
-vim.keymap.set('n',     '<leader>lc',   '<Cmd>TexlabBuild<CR>',                             sopts)
-vim.keymap.set('n',     '<leader>lv',   openPdf,                                            sopts)
-
 -- python
 vim.keymap.set('n',     '<leader>p',    '<Cmd>!python %:p<CR>',                             opts)
 
--- nvim tree
-vim.keymap.set('n',     '<C-n>',        '<Cmd>NvimTreeFocus<CR> <Cmd>NvimTreeRefresh<CR>',  sopts)
+-- neotree
+vim.keymap.set('n',     '<C-n>',        '<Cmd>Neotree<CR>',  sopts)
 
 -- telescope
 vim.keymap.set('n',     '<C-f>',        '<Cmd>Telescope find_files<CR>',                    sopts)
