@@ -64,11 +64,11 @@ local plugins =
         init = function()
             -- setting up lsp servers
             local on_attach = function()
-                vim.keymap.set('n', '<leader>sa', vim.lsp.buf.hover, { remap = false } )
-                vim.keymap.set('n', '<leader>ss', vim.lsp.buf.definition, { remap = false } )
-                vim.keymap.set('n', '<leader>sd', vim.lsp.buf.declaration, { remap = false } )
-                vim.keymap.set('n', '<leader>sr', vim.lsp.buf.references, { remap = false } )
-                vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help, { remap = false } )
+                vim.keymap.set('n',     '<leader>sa',   vim.lsp.buf.hover,            { remap = false } )
+                vim.keymap.set('n',     '<leader>ss',   vim.lsp.buf.definition,       { remap = false } )
+                vim.keymap.set('n',     '<leader>sd',   vim.lsp.buf.declaration,      { remap = false } )
+                vim.keymap.set('n',     '<leader>sr',   vim.lsp.buf.references,       { remap = false } )
+                vim.keymap.set('n',     '<leader>sh',   vim.lsp.buf.signature_help,   { remap = false } )
             end
 
             local capabilities = require'cmp_nvim_lsp'.default_capabilities()
@@ -81,13 +81,21 @@ local plugins =
             local servers = { "clangd", "pyright" }
 
             for _, server in pairs(servers) do
-                require'lspconfig'[server].setup
+                require("lspconfig")[server].setup(
                 {
                     on_attach = on_attach,
                     lsp_flags = lsp_flags,
                     capabilities = capabilities
-                }
+                })
             end
+
+            -- make nvim register CMakeLists.txt as a cmake file
+            -- vim.cmd([[autocmd BufRead,BufNewFile CMakeLists.txt set filetype=cmake]])
+
+            require("lspconfig").cmake.setup(
+            {
+                filetypes = { "cmake" }
+            })
 
             -- setting up rust analyzer
             require("lspconfig").rust_analyzer.setup(
