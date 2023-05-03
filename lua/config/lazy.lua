@@ -240,7 +240,7 @@ local plugins =
             {
                 defaults =
                 {
-                    file_ignore_patterns = { ".git" },
+                    file_ignore_patterns = { ".git", ".vs", ".sln", ".vcxproj", ".vcxproj.user", ".vcxproj.filters" },
                     mappings =
                     {
                         i =
@@ -269,6 +269,19 @@ local plugins =
             "MunifTanjim/nui.nvim",
         },
         config = function()
+            require("neo-tree").setup(
+            {
+                filesystem =
+                {
+                    filtered_items =
+                    {
+                        visible = false,
+                        hide_dotfiles = true,
+                        hide_gitignored = true
+                    }
+                }
+            })
+
             vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
             vim.cmd("Neotree")
         end
@@ -365,4 +378,7 @@ local plugins =
     { "norcalli/nvim-colorizer.lua", config = true }
 }
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- --
+--   actually setting plugin configs   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- --
 require("lazy").setup(plugins)
