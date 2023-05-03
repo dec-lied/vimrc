@@ -71,3 +71,7 @@ vim.keymap.set('n',     '<C-h>',        '<Cmd>wincmd h<CR>',                    
 vim.keymap.set('n',     '<C-j>',        '<Cmd>wincmd j<CR>',                                sopts)
 vim.keymap.set('n',     '<C-k>',        '<Cmd>wincmd k<CR>',                                sopts)
 vim.keymap.set('n',     '<C-l>',        '<Cmd>wincmd l<CR>',                                sopts)
+
+-- toggle term keys
+vim.keymap.set('n',     '<leader>tt',   '<Cmd>ToggleTerm direction=float<CR>',                  sopts)
+vim.keymap.set('t',     '<C-t>',        '<C-\\><C-n>:q<CR>',                           sopts)

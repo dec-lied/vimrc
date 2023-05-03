@@ -21,17 +21,33 @@ vim.opt.rtp:prepend(lazypath)
 -- plugin configuration --
 -- -- -- -- -- -- -- -- --
 
-plugins =
+local plugins =
 {
     -- -- -- -- -- -- --
     -- colorscheme --
     -- -- -- -- -- --
+    -- {
+    --     "rebelot/kanagawa.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require("kanagawa").setup(
+    --         {
+    --             compile = true,
+    --             keywordStyle = { italic = false },
+    --             statementStyle = { bold = false },
+    --             transparent = false,
+    --         })
+
+    --         vim.cmd([[colorscheme kanagawa]])
+    --     end
+    -- },
     {
-        "declspecl/candy-floss",
+        "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme candy-floss]])
+            vim.cmd([[colorscheme tokyonight-night]])
         end
     },
 
@@ -40,25 +56,13 @@ plugins =
     -- -- -- --
     {
         "hrsh7th/nvim-cmp",
-        lazy = false,
         dependencies =
         {
             "hrsh7th/cmp-nvim-lsp",
             "neovim/nvim-lspconfig"
-        }
-    },
-    {
-        "L3MON4D3/LuaSnip",
-        version = "1.*",
-        dependencies =
-        {
-            "rafamadriz/friendly-snippets"
         },
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-
+        init = function()
             -- setting up lsp servers
-
             local on_attach = function()
                 vim.keymap.set('n', '<leader>sa', vim.lsp.buf.hover, { remap = false } )
                 vim.keymap.set('n', '<leader>ss', vim.lsp.buf.definition, { remap = false } )
@@ -66,16 +70,16 @@ plugins =
                 vim.keymap.set('n', '<leader>sr', vim.lsp.buf.references, { remap = false } )
                 vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help, { remap = false } )
             end
-            
+
             local capabilities = require'cmp_nvim_lsp'.default_capabilities()
-            
+
             local lsp_flags =
             {
                 debounce_text_changes = 150
             }
-            
+
             local servers = { "clangd", "pyright" }
-            
+
             for _, server in pairs(servers) do
                 require'lspconfig'[server].setup
                 {
@@ -84,10 +88,71 @@ plugins =
                     capabilities = capabilities
                 }
             end
-            
+
+            -- setting up rust analyzer
+            require("lspconfig").rust_analyzer.setup(
+            {
+                on_attach = on_attach,
+                lsp_flags = lsp_flags,
+                capabilities = capabilities,
+                cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+
+                settings =
+                {
+                    ["rust-analyzer"] =
+                    {
+                        cargo =
+                        {
+                            autoreload = true,
+                            checkOnSave = true
+                        },
+                        check =
+                        {
+                            command = "check"
+                        }
+                    }
+                }
+            })
+
+            -- setting up luals
+            require("lspconfig").lua_ls.setup(
+            {
+                settings =
+                {
+                    Lua =
+                    {
+                        runtime =
+                        {
+                            version = "LuaJIT"
+                        },
+                        diagnostics =
+                        {
+                            globals = { "vim" }
+                        },
+                        telemetry =
+                        {
+                            enable = false
+                        }
+                    }
+                }
+            })
+        end
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "1.*",
+        dependencies =
+        {
+            "rafamadriz/friendly-snippets",
+            "onsails/lspkind.nvim"
+        },
+        init = function()
+            -- loading snippets
+            require("luasnip.loaders.from_vscode").lazy_load()
+
             -- setting up lspkind
             local lspkind = require("lspkind")
-            
+
             local source_mapping =
             {
                 luasnip = "[Snippet]",
@@ -95,7 +160,7 @@ plugins =
                 nvim_lsp = "[LSP]",
                 path = "[Path]",
             }
-            
+
             -- setting up nvim-cmp
             local cmp = require("cmp")
             cmp.setup
@@ -138,69 +203,21 @@ plugins =
                     {
                         mode = 'symbol_text',
                         ellipses_char = '...',
-            
+
                         before = function(entry, item)
                             item.kind = lspkind.presets.default[item.kind]
-            
+
                             item.menu = source_mapping[entry.source.name]
-            
+
                             return item
                         end
                     })
                 }
             }
-
-            -- setting up rust analyzer
-            require("lspconfig").rust_analyzer.setup(
-            {
-                on_attach = on_attach,
-                lsp_flags = lsp_flags,
-                capabilities = capabilities,
-                cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-
-                settings =
-                {
-                    ["rust-analyzer"] =
-                    {
-                        cargo =
-                        {
-                            autoreload = true,
-                            checkOnSave = true
-                        },
-                        check =
-                        {
-                            command = "check"
-                        }
-                    }
-                }
-            })
-
-            require("lspconfig").lua_ls.setup(
-            {
-                settings =
-                {
-                    Lua =
-                    {
-                        runtime =
-                        {
-                            version = "LuaJIT"
-                        },
-                        diagnostics =
-                        {
-                            globals = { "vim" }
-                        },
-                        telemetry =
-                        {
-                            enable = false,
-                        }
-                    }
-                }
-            })
         end
     },
-    "onsails/lspkind.nvim",
-    "folke/trouble.nvim",
-    "j-hui/fidget.nvim",
+    { "folke/trouble.nvim", config = true },
+    { "j-hui/fidget.nvim", config = true },
 
     -- -- -- -- --
     --   navi   --
@@ -216,6 +233,31 @@ plugins =
         config = function()
             require'telescope'.load_extension('live_grep_args')
             require'telescope'.load_extension('harpoon')
+
+            local actions = require("telescope.actions")
+
+            require("telescope").setup(
+            {
+                defaults =
+                {
+                    file_ignore_patterns = { ".git" },
+                    mappings =
+                    {
+                        i =
+                        {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-Tab>"] = actions.select_default
+                        },
+                        n =
+                        {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-Tab>"] = actions.select_default
+                        }
+                    }
+                }
+            })
         end
     },
     {
@@ -227,9 +269,18 @@ plugins =
             "MunifTanjim/nui.nvim",
         },
         config = function()
-            vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-            vim.cmd([[ Neotree ]])
+            vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
+            vim.cmd("Neotree")
         end
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        opts =
+        {
+            terminal_mappings = true
+        },
+        version = "*",
+        config = true
     },
 
     -- -- -- -- -- -- -- -- --
@@ -256,7 +307,7 @@ plugins =
             show_current_context = true
         }
     },
-    "windwp/nvim-autopairs",
+    { "windwp/nvim-autopairs", config = true },
 
     -- -- -- -- -- -- --
     --  misc visuals  --
@@ -267,42 +318,51 @@ plugins =
         {
             "nvim-tree/nvim-web-devicons"
         },
-        opts =
-        {
-            options =
+        config = function()
+            require("lualine").setup(
             {
-                icons_enabled = true,
-                theme = 'candy-floss',
-                component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
-                disabled_filetypes = { 'NvimTree' },
-                always_divide_middle = true
-            },
-            sections =
-            {
-                lualine_a = { "mode" },
-                lualine_b = { "branch", "diff", "diagnostics" },
-                lualine_c =
+                options =
                 {
-                    { "filename" }
+                    icons_enabled = true,
+                    theme = "nightfly",
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
+                    disabled_filetypes = { "neo-tree" },
+                    always_divide_middle = true
                 },
-                lualine_x = { "encoding", "fileformat", "filetype" },
-                lualine_y = { "progress" },
-                lualine_z = { "location" }
-            },
-            inactive_sections =
-            {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = { "filename" },
-                lualine_x = { "filetype" },
-                lualine_z = { "location" }
-            },
-            tabline = {},
-            extensions = {}
-        }
+                sections =
+                {
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch", "diff", "diagnostics" },
+                    lualine_c = { "filename", "buffers" },
+                    lualine_x = { "encoding", "fileformat", "filetype" },
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" }
+                },
+                inactive_sections =
+                {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = { "filename", "buffers" },
+                    lualine_x = { "encoding", "fileformat", "filetype" },
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" }
+                },
+                tabline = {},
+                extensions = {}
+            })
+        end
     },
-    "norcalli/nvim-colorizer.lua"
+    {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 1000
+
+            require("which-key").setup()
+        end
+    },
+    { "norcalli/nvim-colorizer.lua", config = true }
 }
 
 require("lazy").setup(plugins)
