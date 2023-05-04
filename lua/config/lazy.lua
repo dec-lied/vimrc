@@ -89,9 +89,6 @@ local plugins =
                 })
             end
 
-            -- make nvim register CMakeLists.txt as a cmake file
-            -- vim.cmd([[autocmd BufRead,BufNewFile CMakeLists.txt set filetype=cmake]])
-
             require("lspconfig").cmake.setup(
             {
                 filetypes = { "cmake" }
@@ -277,8 +274,14 @@ local plugins =
             "MunifTanjim/nui.nvim",
         },
         config = function()
+            vim.g.neo_tree_remove_legacy_commands = "1"
+
             require("neo-tree").setup(
             {
+                source_selector =
+                {
+                    winbar = true
+                },
                 filesystem =
                 {
                     filtered_items =
@@ -290,8 +293,7 @@ local plugins =
                 }
             })
 
-            vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
-            vim.cmd("Neotree")
+            vim.cmd("Neotree source=filesystem reveal=true position=left")
         end
     },
     {
