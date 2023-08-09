@@ -50,6 +50,14 @@ local plugins =
             vim.cmd([[colorscheme tokyonight-night]])
         end
     },
+    -- {
+    --   "loctvl842/monokai-pro.nvim",
+    --   lazy = false,
+    --   priority = 1000,
+    --   config = function()
+    --       vim.cmd([[colorscheme monokai-pro]])
+    --   end
+    -- },
 
     -- -- -- --
     --  lsp  --
@@ -64,21 +72,21 @@ local plugins =
         init = function()
             -- setting up lsp servers
             local on_attach = function()
-                vim.keymap.set('n',     '<leader>sa',   vim.lsp.buf.hover,            { remap = false } )
-                vim.keymap.set('n',     '<leader>ss',   vim.lsp.buf.definition,       { remap = false } )
-                vim.keymap.set('n',     '<leader>sd',   vim.lsp.buf.declaration,      { remap = false } )
-                vim.keymap.set('n',     '<leader>sr',   vim.lsp.buf.references,       { remap = false } )
-                vim.keymap.set('n',     '<leader>sh',   vim.lsp.buf.signature_help,   { remap = false } )
+                vim.keymap.set("n",     "<leader>sa",   vim.lsp.buf.hover,            { remap = false } )
+                vim.keymap.set("n",     "<leader>ss",   vim.lsp.buf.definition,       { remap = false } )
+                vim.keymap.set("n",     "<leader>sd",   vim.lsp.buf.declaration,      { remap = false } )
+                vim.keymap.set("n",     "<leader>sr",   vim.lsp.buf.references,       { remap = false } )
+                vim.keymap.set("n",     "<leader>sh",   vim.lsp.buf.signature_help,   { remap = false } )
             end
 
-            local capabilities = require'cmp_nvim_lsp'.default_capabilities()
+            local capabilities = require"cmp_nvim_lsp".default_capabilities()
 
             local lsp_flags =
             {
                 debounce_text_changes = 150
             }
 
-            local servers = { "clangd", "pyright" }
+            local servers = { "html", "cssls", "eslint", "tsserver", "svelte", "clangd", "pyright" }
 
             for _, server in pairs(servers) do
                 require("lspconfig")[server].setup(
@@ -172,15 +180,15 @@ local plugins =
             {
                 sources =
                 {
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'buffer' },
-                    { name = 'path' }
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "buffer" },
+                    { name = "path" }
                 },
                 snippet =
                 {
                     expand = function(args)
-                        require'luasnip'.lsp_expand(args.body)
+                        require"luasnip".lsp_expand(args.body)
                     end
                 },
                 window =
@@ -190,24 +198,24 @@ local plugins =
                 },
                 mapping =
                 {
-                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-i>'] = cmp.mapping.scroll_docs(4),
-                    ['<Up>'] = cmp.mapping.select_prev_item(),
-                    ['<C-k>'] = cmp.mapping.select_prev_item(),
-                    ['<Down>'] = cmp.mapping.select_next_item(),
-                    ['<C-j>'] = cmp.mapping.select_next_item(),
-                    ['<C-Tab>'] = cmp.mapping.confirm(
+                    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-i>"] = cmp.mapping.scroll_docs(4),
+                    ["<Up>"] = cmp.mapping.select_prev_item(),
+                    ["<C-k>"] = cmp.mapping.select_prev_item(),
+                    ["<Down>"] = cmp.mapping.select_next_item(),
+                    ["<C-j>"] = cmp.mapping.select_next_item(),
+                    ["<C-Tab>"] = cmp.mapping.confirm(
                     {
                         select = true,
                     },
-                    {'i', 'c'})
+                    {"i", "c"})
                 },
                 formatting =
                 {
                     format = lspkind.cmp_format(
                     {
-                        mode = 'symbol_text',
-                        ellipses_char = '...',
+                        mode = "symbol_text",
+                        ellipses_char = "...",
 
                         before = function(entry, item)
                             item.kind = lspkind.presets.default[item.kind]
@@ -222,7 +230,7 @@ local plugins =
         end
     },
     { "folke/trouble.nvim", config = true },
-    { "j-hui/fidget.nvim", config = true },
+    { "j-hui/fidget.nvim", tag = "legacy", config = true },
 
     -- -- -- -- --
     --   navi   --
@@ -236,8 +244,8 @@ local plugins =
             "nvim-lua/plenary.nvim"
         },
         config = function()
-            require'telescope'.load_extension('live_grep_args')
-            require'telescope'.load_extension('harpoon')
+            require"telescope".load_extension("live_grep_args")
+            require"telescope".load_extension("harpoon")
 
             local actions = require("telescope.actions")
 
@@ -278,22 +286,61 @@ local plugins =
 
             require("neo-tree").setup(
             {
-                source_selector =
-                {
-                    winbar = true
-                },
                 filesystem =
                 {
                     filtered_items =
                     {
-                        visible = false,
-                        hide_dotfiles = true,
-                        hide_gitignored = true
+                        visible = true,
+                        hide_dotfiles = false,
+                        hide_gitignored = false
+                    }
+                },
+                default_component_configs =
+                {
+                    git_status =
+                    {
+                        symbols = false
+                        -- {
+                        --     added       = "[+]",
+                        --     deleted     = "[-]",
+                        --     modified    = "~",
+                        --     renamed     = "r",
+
+                        --     untracked   = "u?",
+                        --     ignored     = "i?",
+                        --     unstaged    = "u",
+                        --     staged      = "s",
+                        --     conflict    = "c"
+                        -- }
                     }
                 }
             })
 
             vim.cmd("Neotree source=filesystem reveal=true position=left")
+        end
+    },
+    -- {
+    --     "akinsho/bufferline.nvim",
+    --     version = "*",
+    --     dependencies =
+    --     {
+    --         "nvim-tree/nvim-web-devicons"
+    --     },
+    --     config = true
+    -- },
+    {
+        "utilyre/barbecue.nvim",
+        version = "*",
+        dependencies =
+        {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("barbecue").setup
+            {
+                theme = "monokai-pro"
+            }
         end
     },
     {
@@ -311,11 +358,10 @@ local plugins =
     -- -- -- -- -- -- -- -- --
     {
         "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
         opts =
         {
-            ensure_installed = { "c", "cpp", "css", "scss", "vim", "lua", "html", "rust", "java", "python", "javascript", "markdown", "markdown_inline" }, -- latex handled by texlab
-            sync_install = false,
-            auto_install = false,
+            ensure_installed = { "c", "cpp", "css", "vim", "lua", "html", "rust", "svelte", "python", "javascript", "typescript" }, -- latex handled by texlab
 
             highlight =
             {
@@ -357,7 +403,7 @@ local plugins =
                 {
                     lualine_a = { "mode" },
                     lualine_b = { "branch", "diff", "diagnostics" },
-                    lualine_c = { "filename", "buffers" },
+                    lualine_c = { "filename" },
                     lualine_x = { "encoding", "fileformat", "filetype" },
                     lualine_y = { "progress" },
                     lualine_z = { "location" }
@@ -366,7 +412,7 @@ local plugins =
                 {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = { "filename", "buffers" },
+                    lualine_c = { "filename" },
                     lualine_x = { "encoding", "fileformat", "filetype" },
                     lualine_y = { "progress" },
                     lualine_z = { "location" }
