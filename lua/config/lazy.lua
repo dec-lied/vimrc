@@ -24,16 +24,15 @@ local plugins =
 	},
 
 	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-	},
-
-	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
+		branch = "0.1.x",
 		dependencies =
 		{
-			"nvim-lua/plenary.nvim"
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+			}
 		},
 		config = function()
 			local actions = require("telescope.actions")
@@ -51,19 +50,35 @@ local plugins =
                             ["<C-k>"] = actions.move_selection_previous,
                         }
                     }
-				},
-				pickers =
-				{
-					find_files =
-					{
-						hidden = true
-					}
 				}
 			}
 
 			require("telescope").load_extension("fzf")
 		end
-	}
+	},
+
+	{ "folke/trouble.nvim", config = true },
+    { "j-hui/fidget.nvim", tag = "legacy", config = true },
+	
+	{
+		"lukas-reineke/indent-blankline.nvim",
+        opts =
+        {
+            show_current_context = true
+        }
+    },
+    { "windwp/nvim-autopairs", config = true },
+
+    {
+        "utilyre/barbecue.nvim",
+        version = "*",
+        dependencies =
+        {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons",
+        },
+		config = true
+    }
 }
 
 -- -- -- -- -- -- -- --
