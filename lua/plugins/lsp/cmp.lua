@@ -1,86 +1,27 @@
--- -- -- -- -- -- -- -- --
--- general plugin setup --
--- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- --
+--   plugins/lsp/cmp.lua   --
+-- -- -- -- -- -- -- -- -- --
 
-local plugins =
+return
 {
-	-- -- -- -- -- --
-	-- colorscheme --
-	-- -- -- -- -- --
-	{
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        init = function()
-			vim.cmd([[colorscheme tokyonight-night]])
-        end
-	},
-
-	-- -- -- -- -- -- -- -- -- --
-	--   syntax highlighting   --
-	-- -- -- -- -- -- -- -- -- --
-	{
-		"nvim-treesitter/nvim-treesitter",
-		version = false,
-		build = ":TSUpdate"
-		-- "c", "cpp", "go", "vim", "lua", "css", "tsx", "html", "json", "rust", "python", "javascript"
-	},
-
-	-- -- -- -- --
-	--   navi   --
-	-- -- -- -- --
-	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies =
-		{
-			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-			}
-		},
-		init = function()
-			local actions = require("telescope.actions")
-
-			require("telescope").setup
-			{
-				defaults =
-				{
-					-- file_ignore_patterns = { ".git", ".vs", ".sln", ".vcxproj", ".vcxproj.user", ".vcxproj.filters" },
-                    mappings =
-                    {
-                        i =
-                        {
-                            ["<C-j>"] = actions.move_selection_next,
-                            ["<C-k>"] = actions.move_selection_previous,
-                        }
-                    }
-				}
-			}
-
-			require("telescope").load_extension("fzf")
-		end
-	},
-
-	-- -- -- -- -- -- -- -- --
-	--    lsp + snippets    --
-	-- -- -- -- -- -- -- -- --
-	{ "folke/neodev.nvim", opts = {} },
-
-    "hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/vim-vsnip",
-	"hrsh7th/cmp-vsnip",
-	"rafamadriz/friendly-snippets",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-
-    "neovim/nvim-lspconfig",
-
-    "onsails/lspkind.nvim",
-
 	{
         "hrsh7th/nvim-cmp",
+        dependencies =
+        {
+            -- lsp
+            "neovim/nvim-lspconfig",
+
+            -- snippets
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/vim-vsnip",
+            "hrsh7th/cmp-vsnip",
+            "rafamadriz/friendly-snippets",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+
+            -- misc
+            "onsails/lspkind.nvim",
+        },
         init = function()
 			-- snippets setup
 			local cmp = require("cmp")
@@ -221,68 +162,5 @@ local plugins =
                 }
             }
         end
-    },
-
-	-- -- -- -- -- -- --
-	-- misc / visuals --
-	-- -- -- -- -- -- --
-	{ "folke/trouble.nvim", opts = {} },
-
-    {
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-		event = "LspAttach",
-		opts = {}
-	},
-
-    { "windwp/nvim-autopairs", opts = {} },
-
-	{
-		"folke/which-key.nvim",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 500
-		end,
-		opts = {}
-	},
-
-	{
-		"lukas-reineke/indent-blankline.nvim",
-        opts =
-        {
-            show_current_context = true
-        }
-    },
-
-    {
-        "utilyre/barbecue.nvim",
-        dependencies =
-        {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons"
-        },
-		opts = {}
     }
 }
-
--- -- -- -- -- -- -- --
---  lazy.nvim setup  --
--- -- -- -- -- -- -- --
-local lazypath = vim.fn.stdpath("data") .. "\\lazy\\lazy.nvim"
-
-if not vim.loop.fs_stat(lazypath)
-then
-    vim.fn.system(
-    {
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-        lazypath
-    })
-end
-
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup(plugins)

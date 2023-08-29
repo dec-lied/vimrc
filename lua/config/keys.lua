@@ -1,28 +1,42 @@
--- general opts
+-- -- -- -- -- -- -- --
+--  config/keys.lua  --
+-- -- -- -- -- -- -- --
+
+-- -- -- -- -- -- -- --
+--  options objects  --
+-- -- -- -- -- -- -- --
 local opts = { noremap = true }
 local sopts = { noremap = true, silent = true }
 
--- leader key
+-- -- -- -- -- -- -- -- --
+--   leader key setup   --
+-- -- -- -- -- -- -- -- --
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Space>", "<Nop>", sopts)
 
--- global shortcuts
+-- -- -- -- -- -- -- --
+-- editing shortcuts --
+-- -- -- -- -- -- -- --
 vim.keymap.set("n", "<C-c>", "cc", sopts)
 vim.keymap.set("n", "<C-d>", "dd", sopts)
 
--- file navigation shortcuts
+-- -- -- -- -- -- -- -- -- -- -- --
+--   file navigation shortcuts   --
+-- -- -- -- -- -- -- -- -- -- -- --
 vim.keymap.set("n", "<C-k>", "<C-u>zz", sopts)
 vim.keymap.set("n", "<C-j>", "<C-d>zz", sopts)
 vim.keymap.set("n", "<C-e>", "<Cmd>Explore<CR>", sopts)
 
--- misc shortcuts
-vim.keymap.set("n", "<C-o>", "<Cmd>nohl<CR>", sopts)
+-- -- -- -- -- -- --
+-- misc shortcuts --
+-- -- -- -- -- -- --
+vim.keymap.set("n", "<C-u>", "<Cmd>nohl<CR>", sopts)
 
--- telescope keybinds
-local telescope_builtin = require("telescope.builtin")
-
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<C-f>', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
+-- -- -- -- -- -- -- -- --
+--  telescope keybinds  --
+-- -- -- -- -- -- -- -- --
+vim.keymap.set('n', '<leader>ff', "<Cmd>Telescope find_files<CR>", sopts)
+vim.keymap.set('n', '<C-f>', "<Cmd>Telescope find_files<CR>", sopts)
+vim.keymap.set('n', '<leader>fg', "<Cmd> Telescope live_grep<CR>", sopts)
+vim.keymap.set('n', '<leader>fb', "<Cmd> Telescope buffers<CR>", sopts)
+vim.keymap.set('n', '<leader>fh', "<Cmd> Telescope help_tags<CR>", sopts)
