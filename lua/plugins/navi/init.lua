@@ -2,7 +2,6 @@
 --  plugins/navi/init.lua  --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
-    require("plugins.navi.telescope")
+return {
+	{ import = "plugins.navi.telescope" }
 }

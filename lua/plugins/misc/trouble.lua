@@ -2,7 +2,6 @@
 -- plugins/misc/trouble.lua --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
     { "folke/trouble.nvim", config = true }
 }

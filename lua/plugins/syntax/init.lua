@@ -2,8 +2,7 @@
 -- plugins/syntax/init.lua --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
-    require("plugins.syntax.nvim-autopairs"),
-    require("plugins.syntax.treesitter")
+return {
+	{ import = "plugins.syntax.nvim-autopairs" },
+	{ import = "plugins.syntax.treesitter" }
 }

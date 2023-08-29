@@ -2,11 +2,10 @@
 --  plugins/misc/init.lua  --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
-    require("plugins.misc.trouble"),
-    require("plugins.misc.indent-blankline"),
-    require("plugins.misc.which-key"),
-    require("plugins.misc.barbecue"),
-    require("plugins.misc.fidget"),
+return {
+	{ import = "plugins.misc.trouble" },
+	{ import = "plugins.misc.indent-blankline" },
+    { import = "plugins.misc.which-key" },
+    { import = "plugins.misc.barbecue" },
+    { import = "plugins.misc.fidget" }
 }

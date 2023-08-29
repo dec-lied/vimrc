@@ -2,8 +2,7 @@
 -- plugins/lsp/init.lua --
 -- -- -- -- -- -- -- -- --
 
-return
-{
-    require("plugins.lsp.neodev"),
-    require("plugins.lsp.cmp")
+return {
+	{ import = "plugins.lsp.neodev" },
+	{ import = "plugins.lsp.cmp" }
 }

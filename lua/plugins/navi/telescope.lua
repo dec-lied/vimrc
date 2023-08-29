@@ -2,8 +2,7 @@
 -- plugins/navi/telescope.lua --
 -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -18,7 +17,7 @@ return
 		init = function()
 			local actions = require("telescope.actions")
 
-			require("telescope").setup
+			require("telescope").setup(
 			{
 				defaults =
 				{
@@ -32,7 +31,7 @@ return
                         }
                     }
 				}
-			}
+			})
 
 			require("telescope").load_extension("fzf")
 		end

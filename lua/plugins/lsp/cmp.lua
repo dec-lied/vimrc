@@ -2,8 +2,7 @@
 --   plugins/lsp/cmp.lua   --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
     "neovim/nvim-lspconfig",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
@@ -32,7 +31,7 @@ return
                 path = "[path]"
             }
 
-			cmp.setup
+			cmp.setup(
 			{
 				snippet =
 				{
@@ -76,7 +75,7 @@ return
                         end
                     })
                 }
-			}
+			})
 
             -- setting up lsp servers
             local on_attach = function()
@@ -99,15 +98,15 @@ return
 			}
 
             for _, server in pairs(servers) do
-                require("lspconfig")[server].setup
+                require("lspconfig")[server].setup(
                 {
                     on_attach = on_attach,
                     capabilities = capabilities
-                }
+                })
             end
 
             -- setting up rust analyzer
-            require("lspconfig").rust_analyzer.setup
+            require("lspconfig").rust_analyzer.setup(
             {
                 on_attach = on_attach,
                 capabilities = capabilities,
@@ -129,10 +128,10 @@ return
                         }
                     }
                 }
-            }
+            })
 
             -- setting up luals
-            require("lspconfig").lua_ls.setup
+            require("lspconfig").lua_ls.setup(
             {
 				on_attach = on_attach,
 				capabilities = capabilities,
@@ -159,7 +158,7 @@ return
                         }
                     }
                 }
-            }
+            })
         end
     }
 }

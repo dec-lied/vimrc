@@ -2,13 +2,12 @@
 -- plugins/misc/fidget.lua --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
     {
 		"j-hui/fidget.nvim",
 		tag = "legacy",
 		config = function()
-			require("fidget").setup
+			require("fidget").setup(
 			{
 				timer =
 				{
@@ -18,7 +17,7 @@ return
 				{
 					logging = true
 				}
-			}
+			})
 		end
 	}
 }

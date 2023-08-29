@@ -2,7 +2,6 @@
 -- plugins/colors/init.lua --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
-    require("plugins.colors.tokyonight")
+return {
+	{ import = "plugins.colors.tokyonight" }
 }
