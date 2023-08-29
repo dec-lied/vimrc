@@ -7,7 +7,18 @@ return
     {
 		"j-hui/fidget.nvim",
 		tag = "legacy",
-		event = "LspAttach",
-		config = true
+		config = function()
+			require("fidget").setup
+			{
+				timer =
+				{
+					spinner_rate = 100
+				},
+				debug =
+				{
+					logging = true
+				}
+			}
+		end
 	}
 }

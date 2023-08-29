@@ -4,25 +4,22 @@
 
 return
 {
+    "neovim/nvim-lspconfig",
+    "onsails/lspkind.nvim",
+    "hrsh7th/cmp-nvim-lsp",
+
 	{
         "hrsh7th/nvim-cmp",
         dependencies =
         {
-            -- lsp
-            "neovim/nvim-lspconfig",
-
             -- snippets
-            "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/vim-vsnip",
             "hrsh7th/cmp-vsnip",
             "rafamadriz/friendly-snippets",
             "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-
-            -- misc
-            "onsails/lspkind.nvim",
+            "hrsh7th/cmp-path"
         },
-        init = function()
+        config = function()
 			-- snippets setup
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
@@ -69,12 +66,10 @@ return
                 {
                     format = lspkind.cmp_format(
                     {
-                        mode = "text_symbol",
+                        mode = "symbol_text",
                         ellipses_char = "...",
 
                         before = function(entry, item)
-                            item.kind = lspkind.presets.default[item.kind]
-
                             item.menu = source_mapping[entry.source.name]
 
                             return item
@@ -146,6 +141,10 @@ return
                 {
                     Lua =
                     {
+						runtime =
+						{
+							version = "LuaJIT"
+						},
                         diagnostics =
                         {
                             globals = { "vim" }
