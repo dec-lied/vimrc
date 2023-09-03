@@ -4,12 +4,10 @@
 
 return
 {
+	"ThePrimeagen/harpoon",
+	dependencies =
 	{
-		"ThePrimeagen/harpoon",
-		dependencies =
-		{
-			"nvim-lua/plenary.nvim"
-		},
-		config = true
-	}
+		"nvim-lua/plenary.nvim"
+	},
+	config = true
 }

@@ -25,7 +25,7 @@ vim.keymap.set("n", "<C-d>", "dd", sopts)
 -- -- -- -- -- -- -- -- -- -- -- --
 vim.keymap.set("n", "<C-k>", "<C-u>zz", sopts)
 vim.keymap.set("n", "<C-j>", "<C-d>zz", sopts)
-vim.keymap.set("n", "<C-e>", "<Cmd>Explore<CR>", sopts)
+vim.keymap.set("n", "<C-e>", "<Cmd>Oil<CR>", sopts)
 
 -- -- -- -- -- -- --
 -- misc shortcuts --

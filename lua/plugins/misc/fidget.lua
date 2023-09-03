@@ -4,21 +4,19 @@
 
 return
 {
-    {
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-		config = function()
-			require("fidget").setup(
+	"j-hui/fidget.nvim",
+	tag = "legacy",
+	config = function()
+		require("fidget").setup
+		{
+			timer =
 			{
-				timer =
-				{
-					spinner_rate = 100
-				},
-				debug =
-				{
-					logging = true
-				}
-			})
-		end
-	}
+				spinner_rate = 100
+			},
+			debug =
+			{
+				logging = true
+			}
+		}
+	end
 }

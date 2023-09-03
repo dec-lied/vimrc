@@ -18,13 +18,13 @@ require("config")
 -- -- -- -- -- -- -- -- --
 --  setting up plugins  --
 -- -- -- -- -- -- -- -- --
-require("lazy").setup({
+require("lazy").setup{
 	spec =
 	{
-		{ import = "plugins.colors.oxocarbon" },
+		{ import = "plugins.colors.miasma" },
 		{ import = "plugins.syntax" },
 		{ import = "plugins.navi" },
 		{ import = "plugins.misc" },
 		{ import = "plugins.lsp" }
 	}
-})
+}

@@ -99,15 +99,15 @@ return
 			}
 
             for _, server in pairs(servers) do
-                require("lspconfig")[server].setup(
+                require("lspconfig")[server].setup
                 {
                     on_attach = on_attach,
                     capabilities = capabilities
-                })
+                }
             end
 
             -- setting up rust analyzer
-            require("lspconfig").rust_analyzer.setup(
+            require("lspconfig").rust_analyzer.setup
             {
                 on_attach = on_attach,
                 capabilities = capabilities,
@@ -129,10 +129,10 @@ return
                         }
                     }
                 }
-            })
+            }
 
             -- setting up luals
-            require("lspconfig").lua_ls.setup(
+            require("lspconfig").lua_ls.setup
             {
 				on_attach = on_attach,
 				capabilities = capabilities,
@@ -159,7 +159,7 @@ return
                         }
                     }
                 }
-            })
+            }
         end
     }
 }

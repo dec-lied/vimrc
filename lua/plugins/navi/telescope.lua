@@ -4,38 +4,36 @@
 
 return
 {
+	"nvim-telescope/telescope.nvim",
+	branch = "0.1.x",
+	dependencies =
 	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies =
+		"nvim-lua/plenary.nvim",
 		{
-			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-			}
-		},
-		init = function()
-			local actions = require("telescope.actions")
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+		}
+	},
+	init = function()
+		local actions = require("telescope.actions")
 
-			require("telescope").setup(
+		require("telescope").setup
+		{
+			defaults =
 			{
-				defaults =
-				{
-					-- file_ignore_patterns = { ".git", ".vs", ".sln", ".vcxproj", ".vcxproj.user", ".vcxproj.filters" },
-                    mappings =
+				-- file_ignore_patterns = { ".git", ".vs", ".sln", ".vcxproj", ".vcxproj.user", ".vcxproj.filters" },
+                mappings =
+                {
+                    i =
                     {
-                        i =
-                        {
-                            ["<C-j>"] = actions.move_selection_next,
-                            ["<C-k>"] = actions.move_selection_previous,
-                        }
+                        ["<C-j>"] = actions.move_selection_next,
+                        ["<C-k>"] = actions.move_selection_previous,
                     }
-				}
-			})
+                }
+			}
+		}
 
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("harpoon")
-		end
-	}
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("harpoon")
+	end
 }
