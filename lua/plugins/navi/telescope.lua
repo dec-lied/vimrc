@@ -2,7 +2,8 @@
 -- plugins/navi/telescope.lua --
 -- -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -34,6 +35,7 @@ return {
 			})
 
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("harpoon")
 		end
 	}
 }

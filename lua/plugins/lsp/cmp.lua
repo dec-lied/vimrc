@@ -2,7 +2,8 @@
 --   plugins/lsp/cmp.lua   --
 -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
     "neovim/nvim-lspconfig",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
@@ -91,7 +92,7 @@ return {
 			local servers =
 			{
 				-- web
-				"html", "cssls", "eslint", "tsserver", "tailwindcss",
+				"html", "cssls", "eslint", "tsserver", "tailwindcss", "emmet_language_server",
 
 				-- misc
 				"cmake", "gopls", "clangd", "pyright"

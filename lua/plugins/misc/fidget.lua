@@ -2,7 +2,8 @@
 -- plugins/misc/fidget.lua --
 -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
     {
 		"j-hui/fidget.nvim",
 		tag = "legacy",

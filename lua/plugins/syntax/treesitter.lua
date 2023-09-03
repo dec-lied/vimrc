@@ -2,7 +2,8 @@
 -- plugins/syntax/treesitter.lua --
 -- -- -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
 	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,

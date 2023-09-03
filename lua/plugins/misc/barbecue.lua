@@ -2,7 +2,8 @@
 --   plugins/misc/barbecue.lua   --
 -- -- -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
     {
         "utilyre/barbecue.nvim",
         dependencies =

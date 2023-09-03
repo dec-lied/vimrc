@@ -21,7 +21,7 @@ require("config")
 require("lazy").setup({
 	spec =
 	{
-		{ import = "plugins.colors" },
+		{ import = "plugins.colors.oxocarbon" },
 		{ import = "plugins.syntax" },
 		{ import = "plugins.navi" },
 		{ import = "plugins.misc" },

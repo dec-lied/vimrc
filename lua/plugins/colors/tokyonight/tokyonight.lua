@@ -1,8 +1,9 @@
--- -- -- -- -- -- -- -- -- -- -- --
--- plugins/colors/tokyonight.lua --
--- -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+--   plugins/colors/tokyonight/tokyonight.lua   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
     {
         "folke/tokyonight.nvim",
         lazy = false,

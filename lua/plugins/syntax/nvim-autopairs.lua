@@ -2,6 +2,7 @@
 --   plugins/editing/nvim-autopairs.lua   --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
     { "windwp/nvim-autopairs", config = true }
 }

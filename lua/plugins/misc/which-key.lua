@@ -2,7 +2,8 @@
 -- plugins/misc/which-key.lua --
 -- -- -- -- -- -- -- -- -- -- --
 
-return {
+return
+{
     {
 		"folke/which-key.nvim",
 		init = function()
