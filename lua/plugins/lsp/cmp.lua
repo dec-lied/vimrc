@@ -13,9 +13,14 @@ return
         dependencies =
         {
             -- snippets
-            "hrsh7th/vim-vsnip",
-            "hrsh7th/cmp-vsnip",
-            "rafamadriz/friendly-snippets",
+			{
+				"dcampos/cmp-snippy",
+				dependencies =
+				{
+					"dcampos/nvim-snippy",
+					"honza/vim-snippets"
+				}
+			},
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path"
         },
@@ -28,7 +33,7 @@ return
             {
                 buffer = "[buffer]",
                 nvim_lsp = "[lsp]",
-				vsnip = "[vsnip]",
+				snippy = "[snippy]",
                 path = "[path]"
             }
 
@@ -37,13 +42,13 @@ return
 				snippet =
 				{
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
+						require("snippy").expand_snippet(args.body)
 					end
 				},
                 sources = cmp.config.sources(
 				{
                     { name = "nvim_lsp" },
-					{ name = "vsnip" },
+					{ name = "snippy" },
                     { name = "path" },
 					{ name = "buffer" }
 				}),
