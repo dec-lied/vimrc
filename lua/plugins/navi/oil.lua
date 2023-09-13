@@ -1,3 +1,7 @@
+-- -- -- -- -- -- -- -- --
+-- plugins/navi/oil.lua --
+-- -- -- -- -- -- -- -- --
+
 return
 {
 	"stevearc/oil.nvim",

@@ -25,12 +25,13 @@ vim.keymap.set("n", "<C-d>", "dd", sopts)
 -- -- -- -- -- -- -- -- -- -- -- --
 vim.keymap.set("n", "<C-k>", "<C-u>zz", sopts)
 vim.keymap.set("n", "<C-j>", "<C-d>zz", sopts)
-vim.keymap.set("n", "<C-e>", "<Cmd>Oil<CR>", sopts)
+vim.keymap.set("n", "<C-e>", "<Cmd>Oil --float<CR>", sopts)
 
 -- -- -- -- -- -- --
 -- misc shortcuts --
 -- -- -- -- -- -- --
 vim.keymap.set("n", "<C-u>", "<Cmd>nohl<CR>", sopts)
+vim.keymap.set("n", "U", "<C-r>", sopts)
 
 -- -- -- -- -- -- -- -- --
 --  telescope keybinds  --
@@ -58,3 +59,34 @@ vim.keymap.set("n", "<leader>3", harpoon_nav_string(3) .. wait_1ms .. "zz", opts
 vim.keymap.set("n", "<leader>4", harpoon_nav_string(4) .. wait_1ms .. "zz", opts)
 vim.keymap.set("n", "<leader>5", harpoon_nav_string(5) .. wait_1ms .. "zz", opts)
 vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", opts)
+
+-- -- -- -- -- -- -- -- -- -- --
+-- window navigation keybinds --
+-- -- -- -- -- -- -- -- -- -- --
+
+-- wincmd keybinds
+vim.keymap.set("n", "<leader>wh", "<Cmd>wincmd h<CR>", sopts)
+vim.keymap.set("n", "<leader>wj", "<Cmd>wincmd j<CR>", sopts)
+vim.keymap.set("n", "<leader>wk", "<Cmd>wincmd k<CR>", sopts)
+vim.keymap.set("n", "<leader>wl", "<Cmd>wincmd l<CR>", sopts)
+
+-- winshift keybinds
+vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", opts)
+vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", opts)
+
+-- -- -- -- -- -- -- --
+--   rust keybinds   --
+-- -- -- -- -- -- -- --
+vim.keymap.set("n", "<leader>rr", "<Cmd>!cargo run<CR>", opts)
+vim.keymap.set("n", "<leader>rb", "<Cmd>!cargo build<CR>", opts)
+vim.keymap.set("n", "<leader>rn", "<Cmd>!cargo build --release<CR>", opts)
+
+-- -- -- -- -- -- -- --
+--  python keybinds  --
+-- -- -- -- -- -- -- --
+vim.keymap.set("n", "<leader>pp", "<Cmd>!python main.py<CR>", opts)
+
+-- -- -- -- -- -- -- -- --
+-- icon-picker keybinds --
+-- -- -- -- -- -- -- -- --
+vim.keymap.set("n", "<leader>ip", "<Cmd>IconPickerNormal<CR>", sopts)

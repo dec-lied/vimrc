@@ -21,7 +21,9 @@ vim.opt.wrap = false
 
 vim.opt.hidden = true
 
-vim.opt.dir = vim.fn.stdpath("data") .. "\\swap\\"
+vim.opt.undofile = true
+vim.opt.swapfile = false
+
 vim.opt.undodir = vim.fn.stdpath("data") .. "\\undo\\"
 vim.opt.backupdir = vim.fn.stdpath("data") .. "\\backups\\"
 
