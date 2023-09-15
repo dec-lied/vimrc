@@ -65,10 +65,10 @@ vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", opts
 -- -- -- -- -- -- -- -- -- -- --
 
 -- wincmd keybinds
-vim.keymap.set("n", "<leader>wh", "<Cmd>wincmd h<CR>", sopts)
-vim.keymap.set("n", "<leader>wj", "<Cmd>wincmd j<CR>", sopts)
-vim.keymap.set("n", "<leader>wk", "<Cmd>wincmd k<CR>", sopts)
-vim.keymap.set("n", "<leader>wl", "<Cmd>wincmd l<CR>", sopts)
+vim.keymap.set("n", "H", "<Cmd>wincmd h<CR>", sopts)
+vim.keymap.set("n", "J", "<Cmd>wincmd j<CR>", sopts)
+vim.keymap.set("n", "K", "<Cmd>wincmd k<CR>", sopts)
+vim.keymap.set("n", "L", "<Cmd>wincmd l<CR>", sopts)
 
 -- winshift keybinds
 vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", opts)
