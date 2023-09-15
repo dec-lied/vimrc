@@ -1,10 +1,11 @@
--- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- --cmp
 --   plugins/lsp/cmp.lua   --
 -- -- -- -- -- -- -- -- -- --
 
 return
 {
     "neovim/nvim-lspconfig",
+	"simrat39/rust-tools.nvim",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
 
@@ -109,32 +110,42 @@ return
                     on_attach = on_attach,
                     capabilities = capabilities
                 }
-            end
+			end
 
-            -- setting up rust analyzer
-            require("lspconfig").rust_analyzer.setup
-            {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+			local opts =
+			{
+				tools =
+				{
+					executors = nil,
+					inlay_hints =
+					{
+						auto = true
+					}
+				},
+				server =
+				{
+					on_attach = on_attach,
 
-                settings =
-                {
-                    ["rust-analyzer"] =
-                    {
-                        cargo =
-                        {
-                            autoreload = true,
-                            checkOnSave = true,
-							allFeatures = true
-                        },
-                        check =
-                        {
-                            command = "check"
-                        }
-                    }
-                }
-            }
+					settings =
+					{
+						["rust-analyzer"] =
+						{
+							cargo =
+							{
+								autoReload = true,
+								checkOnSave = true,
+								allFeatures = true
+							},
+							check =
+							{
+								command = "check"
+							}
+						}
+					}
+				}
+			}
+
+			require("rust-tools").setup(opts)
 
             -- setting up luals
             require("lspconfig").lua_ls.setup
