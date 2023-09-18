@@ -16,10 +16,10 @@ return
 			{
 				enable = true
 			},
-			-- indent =
-			-- {
-			-- 	enable = true
-			-- },
+			indent =
+			{
+				enable = true
+			},
 			autotag =
 			{
 				enable = true

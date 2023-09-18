@@ -28,6 +28,3 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "\\undo\\"
 vim.opt.backupdir = vim.fn.stdpath("data") .. "\\backups\\"
 
 vim.opt.scrolloff = 10
-
--- disable text at end of lines for virtual lines plugin
-vim.diagnostic.config({ virtual_text = false })

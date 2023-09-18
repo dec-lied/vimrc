@@ -60,15 +60,20 @@ vim.keymap.set("n", "<leader>4", harpoon_nav_string(4) .. wait_1ms .. "zz", opts
 vim.keymap.set("n", "<leader>5", harpoon_nav_string(5) .. wait_1ms .. "zz", opts)
 vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", opts)
 
+-- -- -- -- -- -- -- -- --
+--   trouble keybinds   --
+-- -- -- -- -- -- -- -- --
+vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble<CR>", sopts)
+
 -- -- -- -- -- -- -- -- -- -- --
 -- window navigation keybinds --
 -- -- -- -- -- -- -- -- -- -- --
 
 -- wincmd keybinds
-vim.keymap.set("n", "H", "<Cmd>wincmd h<CR>", sopts)
-vim.keymap.set("n", "J", "<Cmd>wincmd j<CR>", sopts)
-vim.keymap.set("n", "K", "<Cmd>wincmd k<CR>", sopts)
-vim.keymap.set("n", "L", "<Cmd>wincmd l<CR>", sopts)
+vim.keymap.set("n", "<A-h>", "<Cmd>wincmd h<CR>", sopts)
+vim.keymap.set("n", "<A-j>", "<Cmd>wincmd j<CR>", sopts)
+vim.keymap.set("n", "<A-k>", "<Cmd>wincmd k<CR>", opts)
+vim.keymap.set("n", "<A-l>", "<Cmd>wincmd l<CR>", sopts)
 
 -- winshift keybinds
 vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", opts)
