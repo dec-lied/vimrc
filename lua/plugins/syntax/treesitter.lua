@@ -10,16 +10,26 @@ return
 	config = function()
 		require("nvim-treesitter.configs").setup
 		{
+			ensure_installed =
+			{
+				"c",
+				"go",
+				"cpp", "lua", "vim", "css", "tsx", "csv",
+				"html", "rust", "json", "yaml", "toml", "make", "java",
+				"regex", "ninja", "cmake",
+				"python", "gitcommit", "gitignore",
+				"javascript", "typescript"
+			},
 			auto_install = true,
 
 			highlight =
 			{
 				enable = true
 			},
-			indent =
-			{
-				enable = true
-			},
+			-- indent =
+			-- {
+			-- 	enable = true
+			-- },
 			autotag =
 			{
 				enable = true,
@@ -27,5 +37,4 @@ return
 			}
 		}
 	end
-	-- "c", "cpp", "go", "vim", "lua", "css", "tsx", "html", "json", "rust", "python", "javascript"
 }
