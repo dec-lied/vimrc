@@ -116,15 +116,17 @@ return
 			{
 				tools =
 				{
-					executors = nil,
 					inlay_hints =
 					{
-						auto = true
+						auto = true,
+
 					}
 				},
 				server =
 				{
 					on_attach = on_attach,
+					capabilities = capabilities,
+					standalone = false,
 
 					settings =
 					{
