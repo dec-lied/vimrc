@@ -85,6 +85,7 @@ vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", opts)
 vim.keymap.set("n", "<leader>rr", "<Cmd>!cargo run<CR>", opts)
 vim.keymap.set("n", "<leader>rb", "<Cmd>!cargo build<CR>", opts)
 vim.keymap.set("n", "<leader>rn", "<Cmd>!cargo build --release<CR>", opts)
+vim.keymap.set("n", "<leader>rd", "<Cmd>!cargo doc --open<CR>", opts)
 
 -- -- -- -- -- -- -- --
 --  python keybinds  --

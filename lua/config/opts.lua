@@ -28,3 +28,6 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "\\undo\\"
 vim.opt.backupdir = vim.fn.stdpath("data") .. "\\backups\\"
 
 vim.opt.scrolloff = 10
+
+-- copilot settings
+vim.g.copilot_assume_mapped = true
