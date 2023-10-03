@@ -5,7 +5,6 @@
 return
 {
     "neovim/nvim-lspconfig",
-	"simrat39/rust-tools.nvim",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
 
@@ -111,43 +110,6 @@ return
                     capabilities = capabilities
                 }
 			end
-
-			local opts =
-			{
-				tools =
-				{
-					inlay_hints =
-					{
-						auto = true,
-
-					}
-				},
-				server =
-				{
-					on_attach = on_attach,
-					capabilities = capabilities,
-					standalone = false,
-
-					settings =
-					{
-						["rust-analyzer"] =
-						{
-							cargo =
-							{
-								autoReload = true,
-								checkOnSave = true,
-								allFeatures = true
-							},
-							check =
-							{
-								command = "check"
-							}
-						}
-					}
-				}
-			}
-
-			require("rust-tools").setup(opts)
 
             -- setting up luals
             require("lspconfig").lua_ls.setup
