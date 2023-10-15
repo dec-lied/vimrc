@@ -2,7 +2,4 @@
 -- plugins/syntax/ts-autotag.lua --
 -- -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
-	"windwp/nvim-ts-autotag"
-}
+return { "windwp/nvim-ts-autotag" }
