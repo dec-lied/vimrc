@@ -2,6 +2,9 @@
 --  config/opts.lua  --
 -- -- -- -- -- -- -- --
 
+-- cursor
+vim.opt.guicursor = "i:block"
+
 -- line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
