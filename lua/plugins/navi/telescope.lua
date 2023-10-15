@@ -22,14 +22,14 @@ return
 			defaults =
 			{
 				-- file_ignore_patterns = { ".git", ".vs", ".sln", ".vcxproj", ".vcxproj.user", ".vcxproj.filters" },
-                mappings =
-                {
-                    i =
-                    {
-                        ["<C-j>"] = actions.move_selection_next,
-                        ["<C-k>"] = actions.move_selection_previous,
-                    }
-                }
+				mappings =
+				{
+					i =
+					{
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+					}
+				}
 			}
 		}
 

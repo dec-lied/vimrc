@@ -28,13 +28,13 @@ return
 			},
 			-- indent =
 			-- {
-			-- 	enable = true
-			-- },
-			autotag =
-			{
-				enable = true,
-				enable_close_on_slash = false
+				-- 	enable = true
+				-- },
+				autotag =
+				{
+					enable = true,
+					enable_close_on_slash = false
+				}
 			}
-		}
-	end
-}
+		end
+	}
