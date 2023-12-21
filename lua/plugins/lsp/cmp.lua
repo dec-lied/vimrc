@@ -100,7 +100,7 @@ return
 				"html", "cssls", "eslint", "tsserver", "tailwindcss", "emmet_language_server",
 
 				-- misc
-				"cmake", "gopls", "clangd", "pyright"
+				"cmake", "gopls", "clangd", "pyright", "dotls"
 			}
 
 			for _, server in pairs(servers) do

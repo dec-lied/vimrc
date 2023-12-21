@@ -7,6 +7,8 @@
 -- -- -- -- -- -- -- --
 local opts = { noremap = true }
 local sopts = { noremap = true, silent = true }
+local expr = { noremap = true, expr = true }
+local sexpr = { noremap = true, silent = true, expr = true }
 
 -- -- -- -- -- -- -- -- --
 --   leader key setup   --
@@ -96,3 +98,23 @@ vim.keymap.set("n", "<leader>pp", "<Cmd>!python main.py<CR>", opts)
 -- icon-picker keybinds --
 -- -- -- -- -- -- -- -- --
 vim.keymap.set("n", "<leader>ip", "<Cmd>IconPickerNormal<CR>", sopts)
+
+-- -- -- -- -- -- -- --
+-- graphviz keybinds --
+-- -- -- -- -- -- -- --
+local function compileDotFile()
+    vim.fn.execute("silent !dot -Tsvg " .. vim.fn.expand("%:t") .. " -o " .. vim.fn.expand("%:t:r") .. ".svg")
+end
+
+local function openCompiledSvgFile()
+    vim.fn.execute("silent !start " .. vim.fn.expand("%:t:r") .. ".svg")
+end
+
+local function compileAndOpenDotFile()
+    compileDotFile()
+    openCompiledSvgFile()
+end
+
+vim.keymap.set("n", "<leader>gc", compileDotFile, sopts)
+vim.keymap.set("n", "<leader>go", openCompiledSvgFile, sopts)
+vim.keymap.set("n", "<leader>gg", compileAndOpenDotFile, sopts)

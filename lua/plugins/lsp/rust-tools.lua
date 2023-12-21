@@ -31,6 +31,7 @@ return
 				{
 					["rust-analyzer"] =
 					{
+                        cmd = { "rustup", "run", "nightly", "rust-analyzer" },
 						cargo =
 						{
 							autoReload = true,
