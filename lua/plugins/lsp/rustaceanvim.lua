@@ -23,17 +23,23 @@ return {
             },
             server = {
                 on_attach = function(client, bufnr)
+                    if client.server_capabilities.inlayHintProvider then
+                        vim.lsp.inlay_hint.enable(bufnr, true)
+                    else
+                        print("no inlay hints available for client")
+                    end
+
                     vim.keymap.set("n", "<leader>sa", vim.lsp.buf.hover, { remap = false, desc = "Show hover actions" } )
                     vim.keymap.set("n", "<leader>sc", function() vim.cmd.RustLsp("codeAction") end, { remap = false, desc = "Show code actions" } )
                     vim.keymap.set("n", "<leader>sr", function() vim.cmd.RustLsp("runnables") end, { remap = false, desc = "Show runnables" } )
                     vim.keymap.set("n", "<leader>se", function() vim.cmd.RustLsp("explainError") end, { remap = false, desc = "Explain this error" } )
                     vim.keymap.set("n", "<leader>sj", function() vim.cmd.RustLsp("joinLines") end, { remap = false, desc = "Joins selected lines" } )
 
-                    if client.server_capabilities.inlayHintProvider then
-                        vim.lsp.inlay_hint.enable(bufnr, true)
-                    else
-                        print("no inlay hints available for client")
-                    end
+                    -- from lspconfig settings
+				    vim.keymap.set("n", "<leader>ss", vim.lsp.buf.definition, { remap = false, desc = "Show definition" } )
+				    vim.keymap.set("n", "<leader>sd", vim.lsp.buf.declaration, { remap = false, desc = "Show declaration" } )
+				    vim.keymap.set("n", "<leader>sr", vim.lsp.buf.references, { remap = false, desc = "Show references" } )
+				    vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { remap = false, desc = "Signature help" } )
 
                     -- using nvim 0.10 inlay hints, dont need this
                     -- require("lsp-inlayhints").on_attach(client, bufnr)

@@ -2,35 +2,27 @@
 --  config/keys.lua  --
 -- -- -- -- -- -- -- --
 
--- -- -- -- -- -- -- --
---  options objects  --
--- -- -- -- -- -- -- --
-local opts = { noremap = true }
-local sopts = { noremap = true, silent = true }
--- local expr = { noremap = true, expr = true }
--- local sexpr = { noremap = true, silent = true, expr = true }
-
 -- -- -- -- -- -- -- -- --
 --   leader key setup   --
 -- -- -- -- -- -- -- -- --
 vim.g.mapleader = " "
-vim.keymap.set("n", "<Space>", "<Nop>", sopts)
+vim.keymap.set("n", "<Space>", "<Nop>", { remap = false, silent = true, desc = "Leader key"})
 
 -- -- -- -- -- -- -- -- -- -- -- --
 --   file navigation shortcuts   --
 -- -- -- -- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<C-u>", "<C-u>zz", sopts)
-vim.keymap.set("n", "<C-d>", "<C-d>zz", sopts)
-vim.keymap.set("n", "<C-e>", "<Cmd>Oil<CR>", sopts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz",         { remap = false, silent = true, desc = "Scroll up and center view on cursor" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz",         { remap = false, silent = true, desc = "Scroll down and center view on cursor" })
+vim.keymap.set("n", "<C-e>", "<Cmd>Oil<CR>",    { remap = false, silent = true, desc = "Open Oil at the cwd" })
 
 -- -- -- -- -- -- -- -- --
 --  telescope keybinds  --
 -- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<leader>ff",	"<Cmd>Telescope find_files<CR>",	sopts)
-vim.keymap.set("n", "<C-f>",		"<Cmd>Telescope find_files<CR>",	sopts)
-vim.keymap.set("n", "<leader>fg",	"<Cmd> Telescope live_grep<CR>",	sopts)
-vim.keymap.set("n", "<leader>fb", 	"<Cmd> Telescope buffers<CR>",		sopts)
-vim.keymap.set("n", "<leader>fh", 	"<Cmd> Telescope help_tags<CR>",	sopts)
+vim.keymap.set("n", "<leader>ff",   "<Cmd>Telescope find_files<CR>",    { remap = false, silent = true, desc = "Open Telescope file search" })
+vim.keymap.set("n", "<C-f>",        "<Cmd>Telescope find_files<CR>",    { remap = false, silent = true, desc = "Open Telescope file search" })
+vim.keymap.set("n", "<leader>fg",   "<Cmd> Telescope live_grep<CR>",    { remap = false, silent = true, desc = "Open Telescope live grep" })
+vim.keymap.set("n", "<leader>fb",   "<Cmd> Telescope buffers<CR>",      { remap = false, silent = true, desc = "Open Telescope buffer search" })
+vim.keymap.set("n", "<leader>fh",   "<Cmd> Telescope help_tags<CR>",    { remap = false, silent = true, desc = "Open Telescope help tags" })
 
 -- -- -- -- -- -- -- -- --
 --   harpoon keybinds   -- 
@@ -38,71 +30,34 @@ vim.keymap.set("n", "<leader>fh", 	"<Cmd> Telescope help_tags<CR>",	sopts)
 local wait_1ms = "<Cmd>sleep 1m<CR>"
 
 local harpoon_nav_string = function(slot_num)
-	return "<Cmd>lua require('harpoon.ui').nav_file(" .. slot_num .. ")<CR>"
+    return "<Cmd>lua require('harpoon.ui').nav_file(" .. slot_num .. ")<CR>"
 end
 
-vim.keymap.set("n", "<leader>hh", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",  opts)
-vim.keymap.set("n", "<leader>ha", "<Cmd>lua require('harpoon.mark').add_file()<CR>",  opts)
-vim.keymap.set("n", "<leader>1", harpoon_nav_string(1) .. wait_1ms .. "zz", opts)
-vim.keymap.set("n", "<leader>2", harpoon_nav_string(2) .. wait_1ms .. "zz", opts)
-vim.keymap.set("n", "<leader>3", harpoon_nav_string(3) .. wait_1ms .. "zz", opts)
-vim.keymap.set("n", "<leader>4", harpoon_nav_string(4) .. wait_1ms .. "zz", opts)
-vim.keymap.set("n", "<leader>5", harpoon_nav_string(5) .. wait_1ms .. "zz", opts)
-vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", opts)
+vim.keymap.set("n", "<leader>hh", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",     { remap = true, desc = "Toggle harpoon menu" })
+vim.keymap.set("n", "<leader>ha", "<Cmd>lua require('harpoon.mark').add_file()<CR>",            { remap = true, desc = "Add harpoon mark" })
+
+vim.keymap.set("n", "<leader>1", harpoon_nav_string(1) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 1" })
+vim.keymap.set("n", "<leader>2", harpoon_nav_string(2) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 2" })
+vim.keymap.set("n", "<leader>3", harpoon_nav_string(3) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 3" })
+vim.keymap.set("n", "<leader>4", harpoon_nav_string(4) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 4" })
+vim.keymap.set("n", "<leader>5", harpoon_nav_string(5) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 5" })
+vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 6" })
 
 -- -- -- -- -- -- -- -- --
 --   trouble keybinds   --
 -- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble<CR>", sopts)
+vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble<CR>", { remap = false, silent = true, desc = "Open Trouble" })
 
 -- -- -- -- -- -- -- -- -- -- --
 -- window navigation keybinds --
 -- -- -- -- -- -- -- -- -- -- --
 
 -- wincmd keybinds
-vim.keymap.set("n", "<A-h>", "<Cmd>wincmd h<CR>", sopts)
-vim.keymap.set("n", "<A-j>", "<Cmd>wincmd j<CR>", sopts)
-vim.keymap.set("n", "<A-k>", "<Cmd>wincmd k<CR>", opts)
-vim.keymap.set("n", "<A-l>", "<Cmd>wincmd l<CR>", sopts)
+vim.keymap.set("n", "<A-h>", "<Cmd>wincmd h<CR>", { remap = false, silent = true, desc = "Focus left window" })
+vim.keymap.set("n", "<A-j>", "<Cmd>wincmd j<CR>", { remap = false, silent = true, desc = "Focus down window" })
+vim.keymap.set("n", "<A-k>", "<Cmd>wincmd k<CR>", { remap = false, silent = true, desc = "Focus top window" })
+vim.keymap.set("n", "<A-l>", "<Cmd>wincmd l<CR>", { remap = false, silent = true, desc = "Focus right window" })
 
 -- winshift keybinds
-vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", opts)
-vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", opts)
-
--- -- -- -- -- -- -- --
---   rust keybinds   --
--- -- -- -- -- -- -- --
--- vim.keymap.set("n", "<leader>rr", "<Cmd>!cargo run<CR>", opts)
--- vim.keymap.set("n", "<leader>rb", "<Cmd>!cargo build<CR>", opts)
--- vim.keymap.set("n", "<leader>rn", "<Cmd>!cargo build --release<CR>", opts)
--- vim.keymap.set("n", "<leader>rd", "<Cmd>!cargo doc --open<CR>", opts)
-
--- -- -- -- -- -- -- --
---  python keybinds  --
--- -- -- -- -- -- -- --
-vim.keymap.set("n", "<leader>pp", "<Cmd>!python main.py<CR>", opts)
-
--- -- -- -- -- -- -- -- --
--- icon-picker keybinds --
--- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<leader>ip", "<Cmd>IconPickerNormal<CR>", sopts)
-
--- -- -- -- -- -- -- --
--- graphviz keybinds --
--- -- -- -- -- -- -- --
-local function compileDotFile()
-    vim.fn.execute("silent !dot -Tsvg " .. vim.fn.expand("%:t") .. " -o " .. vim.fn.expand("%:t:r") .. ".svg")
-end
-
-local function openCompiledSvgFile()
-    vim.fn.execute("silent !start " .. vim.fn.expand("%:t:r") .. ".svg")
-end
-
-local function compileAndOpenDotFile()
-    compileDotFile()
-    openCompiledSvgFile()
-end
-
-vim.keymap.set("n", "<leader>gc", compileDotFile, sopts)
-vim.keymap.set("n", "<leader>go", openCompiledSvgFile, sopts)
-vim.keymap.set("n", "<leader>gg", compileAndOpenDotFile, sopts)
+vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", { remap = true, desc = "Open Winshift" })
+vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", { remap = true, desc = "Winshift swap windows" })
