@@ -52,6 +52,10 @@ vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble<CR>", { remap = false, silent = 
 -- window navigation keybinds --
 -- -- -- -- -- -- -- -- -- -- --
 
+-- window splitting
+vim.keymap.set("n", "<leader>vv", "<Cmd>vsplit<CR>",    { remap = false, silent = true, desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>vh", "<Cmd>split<CR>",     { remap = false, silent = true, desc = "Split window vertically" })
+
 -- wincmd keybinds
 vim.keymap.set("n", "<A-h>", "<Cmd>wincmd h<CR>", { remap = false, silent = true, desc = "Focus left window" })
 vim.keymap.set("n", "<A-j>", "<Cmd>wincmd j<CR>", { remap = false, silent = true, desc = "Focus down window" })
@@ -59,5 +63,5 @@ vim.keymap.set("n", "<A-k>", "<Cmd>wincmd k<CR>", { remap = false, silent = true
 vim.keymap.set("n", "<A-l>", "<Cmd>wincmd l<CR>", { remap = false, silent = true, desc = "Focus right window" })
 
 -- winshift keybinds
-vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", { remap = false, desc = "Open Winshift" })
+vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>",      { remap = false, desc = "Open Winshift" })
 vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", { remap = false, desc = "Winshift swap windows" })

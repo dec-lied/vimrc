@@ -26,9 +26,9 @@ return {
 			local lspkind = require("lspkind")
 
 			local source_mapping = {
-				buffer = "[buffer]",
-				nvim_lsp = "[lsp]",
 				snippy = "[snippy]",
+				nvim_lsp = "[lsp]",
+				buffer = "[buffer]",
 				path = "[path]"
 			}
 
@@ -49,7 +49,7 @@ return {
 					documentation = cmp.config.window.bordered()
 				},
 				mapping = cmp.mapping.preset.insert({
-					-- ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-i>"] = cmp.mapping.scroll_docs(4),
 					["<Up>"] = cmp.mapping.select_prev_item(),
 					["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -82,7 +82,7 @@ return {
 				vim.keymap.set("n", "<leader>sa", vim.lsp.buf.hover, { remap = false, desc = "Show hover options" } )
 				vim.keymap.set("n", "<leader>ss", vim.lsp.buf.definition, { remap = false, desc = "Show definition" } )
 				vim.keymap.set("n", "<leader>sd", vim.lsp.buf.declaration, { remap = false, desc = "Show declaration" } )
-				vim.keymap.set("n", "<leader>sr", vim.lsp.buf.references, { remap = false, desc = "Show references" } )
+				vim.keymap.set("n", "<leader>sf", vim.lsp.buf.references, { remap = false, desc = "Show references" } )
 				vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { remap = false, desc = "Signature help" } )
 			end
 
