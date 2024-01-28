@@ -1,4 +1,5 @@
-return {
-    "nvim-treesitter/nvim-treesitter-context",
-    opts = {}
-}
+-- -- -- -- -- -- -- -- -- -- --
+-- plugins/syntax/context.lua --
+-- -- -- -- -- -- -- -- -- -- --
+
+return { "nvim-treesitter/nvim-treesitter-context", opts = {} }

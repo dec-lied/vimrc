@@ -33,15 +33,15 @@ local harpoon_nav_string = function(slot_num)
     return "<Cmd>lua require('harpoon.ui').nav_file(" .. slot_num .. ")<CR>"
 end
 
-vim.keymap.set("n", "<leader>hh", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",     { remap = true, desc = "Toggle harpoon menu" })
-vim.keymap.set("n", "<leader>ha", "<Cmd>lua require('harpoon.mark').add_file()<CR>",            { remap = true, desc = "Add harpoon mark" })
+vim.keymap.set("n", "<leader>hh", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",     { remap = false, desc = "Toggle harpoon menu" })
+vim.keymap.set("n", "<leader>ha", "<Cmd>lua require('harpoon.mark').add_file()<CR>",            { remap = false, desc = "Add harpoon mark" })
 
-vim.keymap.set("n", "<leader>1", harpoon_nav_string(1) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 1" })
-vim.keymap.set("n", "<leader>2", harpoon_nav_string(2) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 2" })
-vim.keymap.set("n", "<leader>3", harpoon_nav_string(3) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 3" })
-vim.keymap.set("n", "<leader>4", harpoon_nav_string(4) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 4" })
-vim.keymap.set("n", "<leader>5", harpoon_nav_string(5) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 5" })
-vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", { remap = true, desc = "Go to harpoon mark 6" })
+vim.keymap.set("n", "<leader>1", harpoon_nav_string(1) .. wait_1ms .. "zz", { remap = false, desc = "Go to harpoon mark 1" })
+vim.keymap.set("n", "<leader>2", harpoon_nav_string(2) .. wait_1ms .. "zz", { remap = false, desc = "Go to harpoon mark 2" })
+vim.keymap.set("n", "<leader>3", harpoon_nav_string(3) .. wait_1ms .. "zz", { remap = false, desc = "Go to harpoon mark 3" })
+vim.keymap.set("n", "<leader>4", harpoon_nav_string(4) .. wait_1ms .. "zz", { remap = false, desc = "Go to harpoon mark 4" })
+vim.keymap.set("n", "<leader>5", harpoon_nav_string(5) .. wait_1ms .. "zz", { remap = false, desc = "Go to harpoon mark 5" })
+vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", { remap = false, desc = "Go to harpoon mark 6" })
 
 -- -- -- -- -- -- -- -- --
 --   trouble keybinds   --
@@ -59,5 +59,5 @@ vim.keymap.set("n", "<A-k>", "<Cmd>wincmd k<CR>", { remap = false, silent = true
 vim.keymap.set("n", "<A-l>", "<Cmd>wincmd l<CR>", { remap = false, silent = true, desc = "Focus right window" })
 
 -- winshift keybinds
-vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", { remap = true, desc = "Open Winshift" })
-vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", { remap = true, desc = "Winshift swap windows" })
+vim.keymap.set("n", "<leader>ww", "<Cmd>WinShift<CR>", { remap = false, desc = "Open Winshift" })
+vim.keymap.set("n", "<leader>ws", "<Cmd>WinShift swap<CR>", { remap = false, desc = "Winshift swap windows" })

@@ -13,10 +13,13 @@ return {
 
 			ensure_installed = {
                 -- systems / low level
-                "c", "cpp", "rust",
+                "c", "cpp", "rust", "zig",
+
+                -- web languages
+                "html", "css", "javascript", "typescript", "tsx",
 
                 -- misc languages
-                "java", "python",
+                "java", "python", "go",
 
                 -- neovim
                 "lua", "vim",

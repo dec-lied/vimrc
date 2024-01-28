@@ -72,7 +72,13 @@ return {
 			})
 
 			-- setting up lsp servers
-			local on_attach = function()
+			local on_attach = function(client, bufnr)
+                if client.server_capabilities.inlayHintProvider then
+                    vim.lsp.inlay_hint.enable(bufnr, true)
+                else
+                    print("no inlay hints available for client")
+                end
+
 				vim.keymap.set("n", "<leader>sa", vim.lsp.buf.hover, { remap = false, desc = "Show hover options" } )
 				vim.keymap.set("n", "<leader>ss", vim.lsp.buf.definition, { remap = false, desc = "Show definition" } )
 				vim.keymap.set("n", "<leader>sd", vim.lsp.buf.declaration, { remap = false, desc = "Show declaration" } )
