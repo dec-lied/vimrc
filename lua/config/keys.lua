@@ -7,8 +7,8 @@
 -- -- -- -- -- -- -- --
 local opts = { noremap = true }
 local sopts = { noremap = true, silent = true }
-local expr = { noremap = true, expr = true }
-local sexpr = { noremap = true, silent = true, expr = true }
+-- local expr = { noremap = true, expr = true }
+-- local sexpr = { noremap = true, silent = true, expr = true }
 
 -- -- -- -- -- -- -- -- --
 --   leader key setup   --
@@ -16,24 +16,12 @@ local sexpr = { noremap = true, silent = true, expr = true }
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Space>", "<Nop>", sopts)
 
--- -- -- -- -- -- -- --
--- editing shortcuts --
--- -- -- -- -- -- -- --
-vim.keymap.set("n", "<C-c>", "cc", sopts)
-vim.keymap.set("n", "<C-d>", "dd", sopts)
-
 -- -- -- -- -- -- -- -- -- -- -- --
 --   file navigation shortcuts   --
 -- -- -- -- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<C-k>", "<C-u>zz", sopts)
-vim.keymap.set("n", "<C-j>", "<C-d>zz", sopts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", sopts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", sopts)
 vim.keymap.set("n", "<C-e>", "<Cmd>Oil<CR>", sopts)
-
--- -- -- -- -- -- --
--- misc shortcuts --
--- -- -- -- -- -- --
-vim.keymap.set("n", "<C-u>", "<Cmd>nohl<CR>", sopts)
-vim.keymap.set("n", "U", "<C-r>", sopts)
 
 -- -- -- -- -- -- -- -- --
 --  telescope keybinds  --

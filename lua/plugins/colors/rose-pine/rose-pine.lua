@@ -2,14 +2,12 @@
 -- plugins/colors/rose-pine/rose-pine.lua --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"rose-pine/neovim",
 	lazy = false,
 	priority = 1000,
 	init = function()
-		require("rose-pine").setup
-		{
+		require("rose-pine").setup {
 			-- variant = "moon",
 			disable_italics = true
 		}

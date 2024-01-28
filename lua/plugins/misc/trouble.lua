@@ -2,12 +2,10 @@
 -- plugins/misc/trouble.lua --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"folke/trouble.nvim",
-	dependencies =
-	{
+	dependencies = {
 		"nvim-tree/nvim-web-devicons"
 	},
-	config = true
+    opts = {}
 }

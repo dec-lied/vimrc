@@ -3,8 +3,7 @@
 -- -- -- -- -- -- -- -- -- -- -- -- --
 local lazypath = vim.fn.stdpath("data") .. "\\lazy\\lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath)
-then
+if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 
@@ -18,13 +17,12 @@ require("config")
 -- -- -- -- -- -- -- -- --
 --  setting up plugins  --
 -- -- -- -- -- -- -- -- --
-require("lazy").setup{
-	spec =
-	{
-		{ import = "plugins.colors.gruber-darker" },
+require("lazy").setup({
+	spec = {
+		{ import = "plugins.colors.rose-pine" },
 		{ import = "plugins.syntax" },
 		{ import = "plugins.navi" },
 		{ import = "plugins.misc" },
 		{ import = "plugins.lsp" }
 	}
-}
+})

@@ -4,8 +4,7 @@
 
 vim.o.termguicolors = true
 
-return
-{
+return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,

@@ -2,18 +2,15 @@
 --   plugins/misc/barbecue.lua   --
 -- -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"utilyre/barbecue.nvim",
-	dependencies =
-	{
+	dependencies = {
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons"
 	},
 	config = function()
-		require("barbecue").setup
-		{
+		require("barbecue").setup({
 			theme = "auto"
-		}
+		})
 	end
 }

@@ -2,12 +2,10 @@
 -- plugins/navi/telescope.lua --
 -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
-	dependencies =
-	{
+	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -17,15 +15,10 @@ return
 	init = function()
 		local actions = require("telescope.actions")
 
-		require("telescope").setup
-		{
-			defaults =
-			{
-				-- file_ignore_patterns = { ".git", ".vs", ".sln", ".vcxproj", ".vcxproj.user", ".vcxproj.filters" },
-				mappings =
-				{
-					i =
-					{
+		require("telescope").setup {
+			defaults = {
+				mappings = {
+					i = {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 					}
@@ -34,6 +27,5 @@ return
 		}
 
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("harpoon")
 	end
 }

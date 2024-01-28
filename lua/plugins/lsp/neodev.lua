@@ -2,4 +2,4 @@
 --   plugins/lsp/neodev.lua   --
 -- -- -- -- -- -- -- -- -- -- --
 
-return { "folke/neodev.nvim", config = true }
+return { "folke/neodev.nvim", opts = {} }

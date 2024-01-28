@@ -2,17 +2,14 @@
 --   plugins/lsp/cmp.lua   --
 -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"neovim/nvim-lspconfig",
 	"onsails/lspkind.nvim",
 	"hrsh7th/cmp-nvim-lsp",
 
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies =
-		{
-			-- snippets
+		dependencies = {
 			{
 				"dcampos/cmp-snippy",
 				dependencies =
@@ -25,40 +22,33 @@ return
 			"hrsh7th/cmp-path"
 		},
 		config = function()
-			-- snippets setup
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
 
-			local source_mapping =
-			{
+			local source_mapping = {
 				buffer = "[buffer]",
 				nvim_lsp = "[lsp]",
 				snippy = "[snippy]",
 				path = "[path]"
 			}
 
-			cmp.setup(
-			{
-				snippet =
-				{
+			cmp.setup({
+				snippet = {
 					expand = function(args)
 						require("snippy").expand_snippet(args.body)
 					end
 				},
-				sources = cmp.config.sources(
-				{
+				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "snippy" },
 					{ name = "path" },
 					{ name = "buffer" }
 				}),
-				window =
-				{
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered()
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered()
 				},
-				mapping = cmp.mapping.preset.insert(
-				{
+				mapping = cmp.mapping.preset.insert({
 					-- ["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-i>"] = cmp.mapping.scroll_docs(4),
 					["<Up>"] = cmp.mapping.select_prev_item(),
@@ -67,10 +57,8 @@ return
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<Tab>"] = cmp.mapping.confirm({ select = true })
 				}),
-				formatting =
-				{
-					format = lspkind.cmp_format(
-					{
+				formatting = {
+					format = lspkind.cmp_format({
 						mode = "symbol_text",
 						ellipses_char = "...",
 
@@ -92,54 +80,45 @@ return
 				vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { remap = false } )
 			end
 
-			local capabilities = require"cmp_nvim_lsp".default_capabilities()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local servers =
-			{
+			local servers = {
 				-- web
-				"html", "cssls", "eslint", "tsserver", "tailwindcss", "emmet_language_server",
+				"html", "cssls", "eslint", "tsserver", "tailwindcss", "emmet_language_server", "htmx",
 
 				-- misc
 				"cmake", "gopls", "clangd", "pyright", "dotls"
 			}
 
 			for _, server in pairs(servers) do
-				require("lspconfig")[server].setup
-				{
+				require("lspconfig")[server].setup({
 					on_attach = on_attach,
 					capabilities = capabilities
-				}
+				})
 			end
 
 			-- setting up luals
-			require("lspconfig").lua_ls.setup
-			{
+			require("lspconfig").lua_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 
-				settings =
-				{
-					Lua =
-					{
-						runtime =
-						{
+				settings = {
+					Lua = {
+						runtime = {
 							version = "LuaJIT"
 						},
-						diagnostics =
-						{
+						diagnostics = {
 							globals = { "vim" }
 						},
-						workspace =
-						{
+						workspace = {
 							checkThirdParty = false
 						},
-						telemetry =
-						{
+						telemetry = {
 							enable = false
 						}
 					}
 				}
-			}
+			})
 		end
 	}
 }

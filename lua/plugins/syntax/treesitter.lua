@@ -2,39 +2,31 @@
 -- plugins/syntax/treesitter.lua --
 -- -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"nvim-treesitter/nvim-treesitter",
-	version = false,
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter.configs").setup(
-		{
-			ensure_installed =
-			{
-				"c",
-				"go",
-				"cpp", "lua", "vim", "css", "tsx", "csv",
-				"html", "rust", "json", "yaml", "toml", "make", "java",
-				"regex", "ninja", "cmake",
-				"python", "gitcommit", "gitignore",
-				"javascript", "typescript"
-			},
+		require("nvim-treesitter.configs").setup({
 			auto_install = true,
 
-			highlight =
-			{
+			ensure_installed = {
+                -- systems / low level
+                "c", "cpp", "rust",
+
+                -- misc languages
+                "java", "python",
+
+                -- neovim
+                "lua", "vim",
+
+                -- config/misc files
+                "yaml", "toml", "json", "cmake", "markdown"
+            },
+			highlight = {
 				enable = true
-			},
-			autotag =
-			{
-				enable = true,
-				enable_close_on_slash = false
 			}
-			-- indent =
-			-- {
-			-- 	enable = true
-			-- },
 		})
+
+        require("nvim-treesitter.install").compilers = { "clang", "cl" }
 	end
 }

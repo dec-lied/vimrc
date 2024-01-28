@@ -2,8 +2,7 @@
 --  plugins/misc/indent-blankline.lua  --
 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
 	opts = {}

@@ -2,12 +2,10 @@
 --  plugins/navi/harpoon.lua  --
 -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"ThePrimeagen/harpoon",
-	dependencies =
-	{
+	dependencies = {
 		"nvim-lua/plenary.nvim"
 	},
-	config = true
+    opts = {}
 }

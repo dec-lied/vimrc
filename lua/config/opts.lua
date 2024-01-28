@@ -34,5 +34,5 @@ vim.opt.backupdir = vim.fn.stdpath("data") .. "\\backups\\"
 -- misc
 vim.opt.scrolloff = 10
 
--- copilot settings
-vim.g.copilot_assume_mapped = true
+-- ensuring 0.10 inlay hint visibility is on
+vim.g.inlay_hints_visible = true

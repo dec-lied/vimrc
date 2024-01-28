@@ -4,8 +4,7 @@
 
 vim.o.termguicolors = true
 
-return
-{
+return {
 	"xero/miasma.nvim",
 	lazy = false,
 	priority = 1000,

@@ -2,8 +2,7 @@
 -- plugins/navi/win-shift.lua --
 -- -- -- -- -- -- -- -- -- -- --
 
-return
-{
+return {
 	"sindrets/winshift.nvim",
-	config = true
+    opts = {}
 }

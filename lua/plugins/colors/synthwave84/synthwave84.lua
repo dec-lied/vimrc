@@ -4,8 +4,7 @@
 
 vim.o.termguicolors = true
 
-return
-{
+return {
 	"LunarVim/synthwave84.nvim",
 	lazy = false,
 	priority = 1000,

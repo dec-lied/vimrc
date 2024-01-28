@@ -4,8 +4,7 @@
 
 vim.o.termguicolors = true
 
-return
-{
+return {
     "blazkowolf/gruber-darker.nvim",
     lazy = false,
     priority = 1000,
