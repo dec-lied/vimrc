@@ -39,10 +39,10 @@ return {
 					end
 				},
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
 					{ name = "snippy" },
-					{ name = "path" },
-					{ name = "buffer" }
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+					{ name = "path" }
 				}),
 				window = {
 					completion = cmp.config.window.bordered(),
@@ -76,7 +76,7 @@ return {
                 if client.server_capabilities.inlayHintProvider then
                     vim.lsp.inlay_hint.enable(bufnr, true)
                 else
-                    print("no inlay hints available for client")
+                    print("Inlay hints are not available for the current client")
                 end
 
 				vim.keymap.set("n", "<leader>sa", vim.lsp.buf.hover, { remap = false, desc = "Show hover options" } )
