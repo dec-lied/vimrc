@@ -13,5 +13,6 @@ return {
 		}
 
 		vim.cmd([[colorscheme rose-pine]])
+        vim.cmd([[hi StatusLineNC blend=0]])
 	end
 }
