@@ -3,7 +3,7 @@
 -- -- -- -- -- -- -- -- -- -- --
 
 if vim.g.neovide then
-    vim.o.guifont = "Iosevka Nerd Font Mono:h16"
+    vim.o.guifont = "Iosevka Nerd Font Mono:h15"
     vim.g.neovide_cursor_animation_length = 0
     vim.g.neovide_scroll_animation_length = 0
 
@@ -66,7 +66,37 @@ if vim.g.neovide then
                 "MunifTanjim/nui.nvim"
             },
             config = function()
+                vim.diagnostic.config({
+                    signs = {
+                        text = {
+                            [vim.diagnostic.severity.INFO] = "",
+                            [vim.diagnostic.severity.HINT] = "",
+                            [vim.diagnostic.severity.WARN] = "",
+                            [vim.diagnostic.severity.ERROR] = ""
+                        },
+                        texthl = {
+                            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+                            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+                            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError"
+                        },
+                        linehl = {
+                            [vim.diagnostic.severity.INFO] = "",
+                            [vim.diagnostic.severity.HINT] = "",
+                            [vim.diagnostic.severity.WARN] = "",
+                            [vim.diagnostic.severity.ERROR] = ""
+                        },
+                        numhl = {
+                            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+                            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+                            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError"
+                        }
+                    }
+                })
+
                 require("neo-tree").setup({
+                    enable_diagnostics = true,
                     filesystem = {
                         filtered_items = {
                             visible = true
