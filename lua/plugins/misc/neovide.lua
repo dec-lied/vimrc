@@ -11,7 +11,9 @@ if vim.g.neovide then
         {
             "nvimdev/dashboard-nvim",
             event = "VimEnter",
-            dependencies = { "nvim-tree/nvim-web-devicons" },
+            dependencies = {
+                "nvim-tree/nvim-web-devicons"
+            },
             config = function()
                 require("dashboard").setup({
                     theme = "doom",
@@ -69,6 +71,9 @@ if vim.g.neovide then
                         filtered_items = {
                             visible = true
                         }
+                    },
+                    window = {
+                        width = 32
                     }
                 })
             end

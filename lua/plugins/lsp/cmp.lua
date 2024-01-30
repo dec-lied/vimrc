@@ -76,7 +76,7 @@ return {
                 if client.server_capabilities.inlayHintProvider then
                     vim.lsp.inlay_hint.enable(bufnr, true)
                 else
-                    print("Inlay hints are not available for the current client")
+                    -- print("Inlay hints are not available for the current client")
                 end
 
 				vim.keymap.set("n", "<leader>sa", vim.lsp.buf.hover, { remap = false, desc = "Show hover options" } )
