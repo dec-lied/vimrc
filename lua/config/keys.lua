@@ -46,7 +46,12 @@ vim.keymap.set("n", "<leader>6", harpoon_nav_string(6) .. wait_1ms .. "zz", { re
 -- -- -- -- -- -- -- -- --
 --   trouble keybinds   --
 -- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble<CR>", { remap = false, silent = true, desc = "Open Trouble" })
+vim.keymap.set("n", "<leader>tr", "<Cmd>Trouble<CR>", { remap = false, silent = true, desc = "Open Trouble" })
+
+-- -- -- -- -- -- -- -- -- --
+--   ToggleTerm keybinds   --
+-- -- -- -- -- -- -- -- -- --
+vim.keymap.set("n", "<leader>tr", "<Cmd>ToggleTerm position=float<CR>", { remap = false, silent = true, desc = "Open ToggleTerm in a floating window" })
 
 -- -- -- -- -- -- -- -- -- -- --
 -- window navigation keybinds --
