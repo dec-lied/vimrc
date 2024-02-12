@@ -111,12 +111,6 @@ if vim.g.neovide then
                             [vim.diagnostic.severity.WARN] = "",
                             [vim.diagnostic.severity.ERROR] = ""
                         },
-                        texthl = {
-                            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-                            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-                            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-                            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError"
-                        },
                         linehl = {
                             [vim.diagnostic.severity.INFO] = "",
                             [vim.diagnostic.severity.HINT] = "",
@@ -134,6 +128,7 @@ if vim.g.neovide then
 
                 require("neo-tree").setup({
                     enable_diagnostics = true,
+                    enable_git_status = true,
                     filesystem = {
                         filtered_items = {
                             visible = true
@@ -151,16 +146,16 @@ if vim.g.neovide then
                         },
                         git_status = {
                             symbols = {
-                                added     = "✚",
-                                modified  = "",
-                                deleted   = "✖",
-                                renamed   = "󰁕",
+                                added     = "[✚]",
+                                modified  = "[]",
+                                deleted   = "[✖]",
+                                renamed   = "[󰁕]",
 
-                                untracked = "",
-                                ignored   = "#",
-                                unstaged  = "u",
-                                staged    = "s",
-                                conflict  = "c"
+                                untracked = "[]",
+                                ignored   = "[#]",
+                                unstaged  = "[u]",
+                                staged    = "[s]",
+                                conflict  = "[c]"
                             }
                         }
                     }
