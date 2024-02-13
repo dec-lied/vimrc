@@ -146,16 +146,16 @@ if vim.g.neovide then
                         },
                         git_status = {
                             symbols = {
-                                added     = "[✚]",
-                                modified  = "[]",
-                                deleted   = "[✖]",
-                                renamed   = "[󰁕]",
+                                added     = "✚",
+                                modified  = "",
+                                deleted   = "✖",
+                                renamed   = "󰁕",
 
-                                untracked = "[]",
-                                ignored   = "[#]",
-                                unstaged  = "[u]",
-                                staged    = "[s]",
-                                conflict  = "[c]"
+                                untracked = "",
+                                ignored   = "#",
+                                unstaged  = "u",
+                                staged    = "s",
+                                conflict  = "c"
                             }
                         }
                     }
