@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>tr", "<Cmd>Trouble<CR>", { remap = false, silent = 
 -- -- -- -- -- -- -- -- -- --
 --   ToggleTerm keybinds   --
 -- -- -- -- -- -- -- -- -- --
-vim.keymap.set("n", "<leader>tr", "<Cmd>ToggleTerm position=float<CR>", { remap = false, silent = true, desc = "Open ToggleTerm in a floating window" })
+vim.keymap.set("n", "<leader>tt", "<Cmd>ToggleTerm direction=float<CR>", { remap = false, silent = true, desc = "Open ToggleTerm in a floating window" })
 
 -- -- -- -- -- -- -- -- -- -- --
 -- window navigation keybinds --
