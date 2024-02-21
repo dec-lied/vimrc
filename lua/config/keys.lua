@@ -20,9 +20,9 @@ vim.keymap.set("n", "<C-e>", "<Cmd>Oil<CR>",    { remap = false, silent = true, 
 -- -- -- -- -- -- -- -- --
 vim.keymap.set("n", "<leader>ff",   "<Cmd>Telescope find_files<CR>",    { remap = false, silent = true, desc = "Open Telescope file search" })
 vim.keymap.set("n", "<C-f>",        "<Cmd>Telescope find_files<CR>",    { remap = false, silent = true, desc = "Open Telescope file search" })
-vim.keymap.set("n", "<leader>fg",   "<Cmd> Telescope live_grep<CR>",    { remap = false, silent = true, desc = "Open Telescope live grep" })
-vim.keymap.set("n", "<leader>fb",   "<Cmd> Telescope buffers<CR>",      { remap = false, silent = true, desc = "Open Telescope buffer search" })
-vim.keymap.set("n", "<leader>fh",   "<Cmd> Telescope help_tags<CR>",    { remap = false, silent = true, desc = "Open Telescope help tags" })
+vim.keymap.set("n", "<leader>fg",   "<Cmd>Telescope live_grep<CR>",    { remap = false, silent = true, desc = "Open Telescope live grep" })
+vim.keymap.set("n", "<leader>fb",   "<Cmd>Telescope buffers<CR>",      { remap = false, silent = true, desc = "Open Telescope buffer search" })
+vim.keymap.set("n", "<leader>fh",   "<Cmd>Telescope help_tags<CR>",    { remap = false, silent = true, desc = "Open Telescope help tags" })
 
 -- -- -- -- -- -- -- -- --
 --   harpoon keybinds   -- 

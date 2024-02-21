@@ -5,6 +5,11 @@
 if vim.g.neovide then
     local header
 
+    vim.g.neovide_cursor_animation_length = 0
+    vim.g.neovide_scroll_animation_length = 0
+
+    vim.keymap.set("n", "<leader>ft", "<Cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", { silent = true, remap = false, desc = "Toggles neovide being fullscreen" })
+
     if os.getenv("IS_LAPTOP") then
         vim.o.guifont = "Iosevka Nerd Font Mono:h13"
 
@@ -66,9 +71,6 @@ if vim.g.neovide then
             "                                                                                "
         }
     end
-
-    vim.g.neovide_cursor_animation_length = 0
-    vim.g.neovide_scroll_animation_length = 0
 
     return {
         {
